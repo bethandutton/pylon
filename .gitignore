@@ -6,3 +6,6 @@ dist/
 .next/
 docs/.next/
 docs/next-env.d.ts
+docs/public/pylon.css
+docs/public/pylon.css.map
+docs/.vercel/

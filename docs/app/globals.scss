@@ -17,8 +17,8 @@ $font-family-mono: 'Geist Mono', 'JetBrains Mono', 'Fira Code', 'Consolas', mono
 
 $header-height: 56px;
 
-// Load compiled Pylon CSS
-@import '../../dist/pylon.css';
+// Load compiled Pylon CSS (built by prebuild script into public/)
+@import '../public/pylon.css';
 
 // ---- Docs-specific styles ----
 

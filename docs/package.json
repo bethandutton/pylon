@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "sass ../src/scss/main.scss ./public/pylon.css",
     "build": "next build",
     "start": "next start"
   },
