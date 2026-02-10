@@ -1,0 +1,45 @@
+{
+  "name": "Sidebar",
+  "baseClass": "pylon-sidebar",
+  "elements": [
+    {
+      "name": "header",
+      "class": "pylon-sidebar__header"
+    },
+    {
+      "name": "content",
+      "class": "pylon-sidebar__content"
+    },
+    {
+      "name": "footer",
+      "class": "pylon-sidebar__footer"
+    },
+    {
+      "name": "toggle",
+      "class": "pylon-sidebar__toggle"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [
+    {
+      "name": "collapsed",
+      "class": "--collapsed"
+    }
+  ],
+  "states": [
+    "default",
+    "hovered",
+    "pressed",
+    "focus-visible"
+  ],
+  "layout": {
+    "display": "flex",
+    "flexDirection": "column",
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

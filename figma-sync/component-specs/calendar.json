@@ -1,0 +1,51 @@
+{
+  "name": "Calendar",
+  "baseClass": "pylon-calendar",
+  "elements": [
+    {
+      "name": "header",
+      "class": "pylon-calendar__header"
+    },
+    {
+      "name": "grid",
+      "class": "pylon-calendar__grid"
+    },
+    {
+      "name": "cell",
+      "class": "pylon-calendar__cell"
+    }
+  ],
+  "variants": [
+    {
+      "name": "outside",
+      "class": "--outside",
+      "fill": null,
+      "textColor": "color-subtle",
+      "stroke": null
+    }
+  ],
+  "sizes": [],
+  "flags": [
+    {
+      "name": "today",
+      "class": "--today"
+    }
+  ],
+  "states": [
+    "default",
+    "hovered",
+    "pressed",
+    "selected",
+    "disabled",
+    "focus-visible"
+  ],
+  "layout": {
+    "display": "inline-flex",
+    "flexDirection": "column",
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": 8
+  },
+  "cornerRadius": "radius-lg",
+  "textStyle": null
+}

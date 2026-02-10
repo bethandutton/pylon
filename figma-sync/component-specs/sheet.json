@@ -1,0 +1,40 @@
+{
+  "name": "Sheet",
+  "baseClass": "pylon-sheet",
+  "elements": [
+    {
+      "name": "overlay",
+      "class": "pylon-sheet__overlay"
+    },
+    {
+      "name": "panel",
+      "class": "pylon-sheet__panel"
+    },
+    {
+      "name": "header",
+      "class": "pylon-sheet__header"
+    },
+    {
+      "name": "body",
+      "class": "pylon-sheet__body"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "focus-visible",
+    "entering",
+    "exiting"
+  ],
+  "layout": {
+    "display": null,
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Pagination",
+  "baseClass": "pylon-pagination",
+  "elements": [
+    {
+      "name": "list",
+      "class": "pylon-pagination__list"
+    },
+    {
+      "name": "item",
+      "class": "pylon-pagination__item"
+    },
+    {
+      "name": "next",
+      "class": "pylon-pagination__next"
+    },
+    {
+      "name": "ellipsis",
+      "class": "pylon-pagination__ellipsis"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "hovered",
+    "pressed",
+    "selected",
+    "disabled",
+    "focus-visible"
+  ],
+  "layout": {
+    "display": "flex",
+    "flexDirection": null,
+    "alignItems": "center",
+    "justifyContent": null,
+    "gap": 4
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

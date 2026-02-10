@@ -1,0 +1,22 @@
+{
+  "name": "Radio Group",
+  "baseClass": "pylon-radio-group",
+  "elements": [],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "disabled",
+    "invalid"
+  ],
+  "layout": {
+    "display": "flex",
+    "flexDirection": "column",
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": 12
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

@@ -1,0 +1,38 @@
+{
+  "name": "Input Otp",
+  "baseClass": "pylon-input-otp",
+  "elements": [
+    {
+      "name": "slot",
+      "class": "pylon-input-otp__slot"
+    }
+  ],
+  "variants": [
+    {
+      "name": "filled",
+      "class": "--filled",
+      "fill": null,
+      "textColor": null,
+      "stroke": "color-brand"
+    }
+  ],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "hovered",
+    "disabled",
+    "focus-visible",
+    "invalid",
+    "focused"
+  ],
+  "layout": {
+    "display": "inline-flex",
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": 8
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

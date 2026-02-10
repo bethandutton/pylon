@@ -1,0 +1,53 @@
+{
+  "name": "Table",
+  "baseClass": "pylon-table",
+  "elements": [
+    {
+      "name": "head",
+      "class": "pylon-table__head"
+    },
+    {
+      "name": "header-cell",
+      "class": "pylon-table__header-cell"
+    },
+    {
+      "name": "row",
+      "class": "pylon-table__row"
+    },
+    {
+      "name": "cell",
+      "class": "pylon-table__cell"
+    }
+  ],
+  "variants": [
+    {
+      "name": "striped",
+      "class": "--striped",
+      "fill": "color-surface",
+      "textColor": null,
+      "stroke": null
+    }
+  ],
+  "sizes": [],
+  "flags": [
+    {
+      "name": "compact",
+      "class": "--compact"
+    }
+  ],
+  "states": [
+    "default",
+    "hovered",
+    "selected",
+    "focus-visible"
+  ],
+  "layout": {
+    "display": null,
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": "body"
+}

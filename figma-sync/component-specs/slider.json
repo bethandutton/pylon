@@ -1,0 +1,45 @@
+{
+  "name": "Slider",
+  "baseClass": "pylon-slider",
+  "elements": [
+    {
+      "name": "label",
+      "class": "pylon-slider__label"
+    },
+    {
+      "name": "output",
+      "class": "pylon-slider__output"
+    },
+    {
+      "name": "track",
+      "class": "pylon-slider__track"
+    },
+    {
+      "name": "fill",
+      "class": "pylon-slider__fill"
+    },
+    {
+      "name": "thumb",
+      "class": "pylon-slider__thumb"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "hovered",
+    "pressed",
+    "disabled",
+    "focus-visible"
+  ],
+  "layout": {
+    "display": "flex",
+    "flexDirection": "column",
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": 8
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

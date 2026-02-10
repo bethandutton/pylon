@@ -1,0 +1,19 @@
+{
+  "name": "pylon-figma-sync",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pylon design system → Figma sync pipeline",
+  "scripts": {
+    "extract": "tsx src/extract-tokens.ts",
+    "extract:components": "tsx src/extract-components.ts",
+    "extract:all": "tsx src/extract-tokens.ts && tsx src/extract-components.ts",
+    "generate:variables": "tsx src/generate-variable-scripts.ts",
+    "generate:components": "tsx src/generate-component-scripts.ts",
+    "generate:code-connect": "tsx src/generate-code-connect.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "tsx": "^4.0.0",
+    "@figma/code-connect": "^1.0.0"
+  }
+}

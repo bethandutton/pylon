@@ -1,0 +1,39 @@
+{
+  "name": "Accordion",
+  "baseClass": "pylon-accordion",
+  "elements": [
+    {
+      "name": "item",
+      "class": "pylon-accordion__item"
+    },
+    {
+      "name": "trigger",
+      "class": "pylon-accordion__trigger"
+    },
+    {
+      "name": "content",
+      "class": "pylon-accordion__content"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "hovered",
+    "pressed",
+    "disabled",
+    "focus-visible",
+    "entering",
+    "exiting"
+  ],
+  "layout": {
+    "display": "flex",
+    "flexDirection": "column",
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": "radius-lg",
+  "textStyle": null
+}

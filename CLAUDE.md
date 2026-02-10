@@ -113,3 +113,51 @@ After any change to Sass files:
 1. Run `npm run build` — must produce zero warnings
 2. Check `dist/pylon.css` output is valid
 3. Visually verify in the docs site (`cd docs && npm run dev`)
+
+## Figma sync
+
+The `figma-sync/` directory contains a pipeline to keep the Figma design system file ("Pylon Design System") in sync with the SCSS tokens. Use the `/figma-sync` slash command to run the full sync.
+
+### Pipeline steps
+
+1. **Extract** — `cd figma-sync && npm run extract` — Parses `_tokens.scss` + `_theme.scss` into `tokens.json`
+2. **Generate** — `cd figma-sync && npm run generate:variables` — Generates Figma Plugin API scripts from `tokens.json`
+3. **Execute** — Run each script in `figma-sync/figma-scripts/` via `figma_execute` MCP tool (requires Figma Desktop + Desktop Bridge plugin)
+
+### Connection setup
+
+- **Transport**: WebSocket via Desktop Bridge plugin (NOT CDP — CDP doesn't work on modern Figma Desktop)
+- **Plugin source**: Ships with `figma-console-mcp` npm package. Import via: Plugins → Development → Import plugin from manifest at `~/.npm/_npx/<hash>/node_modules/figma-console-mcp/figma-desktop-bridge/manifest.json`
+- **Port**: MCP runs WebSocket server on `localhost:9223`
+- Check connection: `figma_get_status` MCP tool
+
+### Figma Plugin API rules (2025+)
+
+These are hard requirements. Generated scripts MUST follow them:
+
+- `createVariable(name, collection, type)` — pass the **collection object**, NOT `collection.id`
+- `setVariableCodeSyntax("WEB", value)` — NOT `variable.codeSyntax = { WEB: value }`
+- `console.log()` for output — NOT `return` (bridge doesn't capture return values)
+- NEVER call `figma.closePlugin()` — kills the Desktop Bridge connection
+- Top-level `await` works — no IIFE wrapper needed
+- Fill colours: `{ r, g, b }` only — NO `a` property. Use `opacity` in paint object for transparency
+- `variable.scopes = [...]` — direct setter still works
+- `layoutSizingHorizontal = "FILL"` — can ONLY be set AFTER the node is appended to an auto-layout parent
+- Font style names: `"SemiBold"` not `"Semi Bold"`
+
+### Variable collections
+
+| Collection | Variables | Notes |
+|---|---|---|
+| Pylon/Colors | 17 | Light + Dark + High Contrast modes |
+| Pylon/Typography | 60 | font-size, font-weight, line-height (px), letter-spacing |
+| Pylon/Spacing | 12 | 0–80px scale |
+| Pylon/Radii | 6 | none, sm, md, lg, xl, full |
+
+### Design file structure
+
+- **Pages**: Cover, Foundations, Components, Examples
+- **Foundations page**: Colors, Typography, Spacing, Border Radius frames
+- **Frame pattern**: 1440px wide, white bg, 80px padding, cornerRadius 8, vertical auto-layout, hug heights
+- **No section wrappers** — frames go directly on the page
+- **Everything bound to variables** — no hardcoded fills, radii, padding, or typography values

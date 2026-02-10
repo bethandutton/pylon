@@ -1,0 +1,36 @@
+{
+  "name": "Input Group",
+  "baseClass": "pylon-input-group",
+  "elements": [
+    {
+      "name": "addon",
+      "class": "pylon-input-group__addon"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [
+    {
+      "name": "start",
+      "class": "--start"
+    },
+    {
+      "name": "end",
+      "class": "--end"
+    }
+  ],
+  "states": [
+    "default",
+    "focus-visible",
+    "focused"
+  ],
+  "layout": {
+    "display": "flex",
+    "flexDirection": null,
+    "alignItems": "stretch",
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

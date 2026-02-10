@@ -1,0 +1,73 @@
+{
+  "name": "Toast",
+  "baseClass": "pylon-toast",
+  "elements": [
+    {
+      "name": "content",
+      "class": "pylon-toast__content"
+    },
+    {
+      "name": "title",
+      "class": "pylon-toast__title"
+    },
+    {
+      "name": "description",
+      "class": "pylon-toast__description"
+    },
+    {
+      "name": "action",
+      "class": "pylon-toast__action"
+    },
+    {
+      "name": "close",
+      "class": "pylon-toast__close"
+    }
+  ],
+  "variants": [
+    {
+      "name": "success",
+      "class": "--success",
+      "fill": "color-success-light",
+      "textColor": "color-success",
+      "stroke": "color-success"
+    },
+    {
+      "name": "error",
+      "class": "--error",
+      "fill": "color-error-light",
+      "textColor": "color-error",
+      "stroke": "color-error"
+    },
+    {
+      "name": "warning",
+      "class": "--warning",
+      "fill": "color-warning-light",
+      "textColor": "color-warning",
+      "stroke": "color-warning"
+    },
+    {
+      "name": "info",
+      "class": "--info",
+      "fill": "color-brand-light",
+      "textColor": "color-brand-dark",
+      "stroke": "color-brand"
+    }
+  ],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "hovered",
+    "focus-visible",
+    "exiting"
+  ],
+  "layout": {
+    "display": "flex",
+    "flexDirection": null,
+    "alignItems": "flex-start",
+    "justifyContent": null,
+    "gap": 12
+  },
+  "cornerRadius": "radius-lg",
+  "textStyle": null
+}

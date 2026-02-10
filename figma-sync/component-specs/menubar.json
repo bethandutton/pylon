@@ -1,0 +1,40 @@
+{
+  "name": "Menubar",
+  "baseClass": "pylon-menubar",
+  "elements": [
+    {
+      "name": "item",
+      "class": "pylon-menubar__item"
+    },
+    {
+      "name": "trigger",
+      "class": "pylon-menubar__trigger"
+    },
+    {
+      "name": "content",
+      "class": "pylon-menubar__content"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "hovered",
+    "pressed",
+    "selected",
+    "disabled",
+    "focus-visible",
+    "entering",
+    "exiting"
+  ],
+  "layout": {
+    "display": "flex",
+    "flexDirection": null,
+    "alignItems": "center",
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": "radius-md",
+  "textStyle": null
+}

@@ -1,0 +1,37 @@
+{
+  "name": "Empty",
+  "baseClass": "pylon-empty",
+  "elements": [
+    {
+      "name": "icon",
+      "class": "pylon-empty__icon"
+    },
+    {
+      "name": "title",
+      "class": "pylon-empty__title"
+    },
+    {
+      "name": "description",
+      "class": "pylon-empty__description"
+    },
+    {
+      "name": "action",
+      "class": "pylon-empty__action"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default"
+  ],
+  "layout": {
+    "display": "flex",
+    "flexDirection": "column",
+    "alignItems": "center",
+    "justifyContent": "center",
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

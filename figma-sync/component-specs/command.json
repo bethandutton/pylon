@@ -1,0 +1,52 @@
+{
+  "name": "Command",
+  "baseClass": "pylon-command",
+  "elements": [
+    {
+      "name": "input",
+      "class": "pylon-command__input"
+    },
+    {
+      "name": "list",
+      "class": "pylon-command__list"
+    },
+    {
+      "name": "item",
+      "class": "pylon-command__item"
+    },
+    {
+      "name": "group",
+      "class": "pylon-command__group"
+    },
+    {
+      "name": "group-title",
+      "class": "pylon-command__group-title"
+    },
+    {
+      "name": "empty",
+      "class": "pylon-command__empty"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "selected",
+    "disabled",
+    "focus-visible",
+    "focused",
+    "entering",
+    "exiting",
+    "hovered"
+  ],
+  "layout": {
+    "display": "flex",
+    "flexDirection": null,
+    "alignItems": "flex-start",
+    "justifyContent": "center",
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

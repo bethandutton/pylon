@@ -1,0 +1,20 @@
+{
+  "name": "Aspect Ratio",
+  "baseClass": "pylon-aspect-ratio",
+  "elements": [],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default"
+  ],
+  "layout": {
+    "display": null,
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

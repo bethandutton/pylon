@@ -1,0 +1,87 @@
+{
+  "name": "Button",
+  "baseClass": "pylon-btn",
+  "elements": [],
+  "variants": [
+    {
+      "name": "primary",
+      "class": "--primary",
+      "fill": "color-brand",
+      "textColor": "color-white",
+      "stroke": "color-brand"
+    },
+    {
+      "name": "secondary",
+      "class": "--secondary",
+      "fill": "color-white",
+      "textColor": "color-base",
+      "stroke": "color-border"
+    },
+    {
+      "name": "ghost",
+      "class": "--ghost",
+      "fill": "transparent",
+      "textColor": "color-base",
+      "stroke": "transparent"
+    },
+    {
+      "name": "danger",
+      "class": "--danger",
+      "fill": "color-error",
+      "textColor": "color-white",
+      "stroke": "color-error"
+    }
+  ],
+  "sizes": [
+    {
+      "name": "sm",
+      "class": "--sm",
+      "height": 32,
+      "paddingV": 8,
+      "paddingH": 12,
+      "textStyle": "body-sm"
+    },
+    {
+      "name": "md",
+      "class": "--md",
+      "height": 38,
+      "paddingV": 8,
+      "paddingH": 16,
+      "textStyle": "body"
+    },
+    {
+      "name": "lg",
+      "class": "--lg",
+      "height": 44,
+      "paddingV": 12,
+      "paddingH": 24,
+      "textStyle": "body-lg"
+    }
+  ],
+  "flags": [
+    {
+      "name": "block",
+      "class": "--block"
+    },
+    {
+      "name": "icon",
+      "class": "--icon"
+    }
+  ],
+  "states": [
+    "default",
+    "hovered",
+    "pressed",
+    "disabled",
+    "focus-visible"
+  ],
+  "layout": {
+    "display": "inline-flex",
+    "flexDirection": null,
+    "alignItems": "center",
+    "justifyContent": "center",
+    "gap": 8
+  },
+  "cornerRadius": "radius-md",
+  "textStyle": null
+}

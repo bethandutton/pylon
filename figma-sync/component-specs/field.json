@@ -1,0 +1,33 @@
+{
+  "name": "Field",
+  "baseClass": "pylon-field",
+  "elements": [
+    {
+      "name": "label",
+      "class": "pylon-field__label"
+    },
+    {
+      "name": "description",
+      "class": "pylon-field__description"
+    },
+    {
+      "name": "error",
+      "class": "pylon-field__error"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default"
+  ],
+  "layout": {
+    "display": "flex",
+    "flexDirection": "column",
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": 4
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

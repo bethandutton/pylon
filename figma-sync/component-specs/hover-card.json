@@ -1,0 +1,32 @@
+{
+  "name": "Hover Card",
+  "baseClass": "pylon-hover-card",
+  "elements": [
+    {
+      "name": "trigger",
+      "class": "pylon-hover-card__trigger"
+    },
+    {
+      "name": "content",
+      "class": "pylon-hover-card__content"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "focus-visible",
+    "entering",
+    "exiting"
+  ],
+  "layout": {
+    "display": null,
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

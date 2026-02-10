@@ -1,0 +1,22 @@
+{
+  "name": "Overlay",
+  "baseClass": "pylon-overlay",
+  "elements": [],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "entering",
+    "exiting"
+  ],
+  "layout": {
+    "display": "flex",
+    "flexDirection": null,
+    "alignItems": "center",
+    "justifyContent": "center",
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

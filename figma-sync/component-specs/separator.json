@@ -1,0 +1,38 @@
+{
+  "name": "Separator",
+  "baseClass": "pylon-separator",
+  "elements": [
+    {
+      "name": "text",
+      "class": "pylon-separator__text"
+    }
+  ],
+  "variants": [
+    {
+      "name": "with-text",
+      "class": "--with-text",
+      "fill": "color-border",
+      "textColor": null,
+      "stroke": null
+    }
+  ],
+  "sizes": [],
+  "flags": [
+    {
+      "name": "vertical",
+      "class": "--vertical"
+    }
+  ],
+  "states": [
+    "default"
+  ],
+  "layout": {
+    "display": null,
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

@@ -1,0 +1,69 @@
+{
+  "name": "Alert Dialog",
+  "baseClass": "pylon-alert-dialog",
+  "elements": [
+    {
+      "name": "icon",
+      "class": "pylon-alert-dialog__icon"
+    },
+    {
+      "name": "title",
+      "class": "pylon-alert-dialog__title"
+    },
+    {
+      "name": "description",
+      "class": "pylon-alert-dialog__description"
+    },
+    {
+      "name": "actions",
+      "class": "pylon-alert-dialog__actions"
+    }
+  ],
+  "variants": [
+    {
+      "name": "danger",
+      "class": "--danger",
+      "fill": "color-error-light",
+      "textColor": "color-error",
+      "stroke": null
+    },
+    {
+      "name": "warning",
+      "class": "--warning",
+      "fill": "color-warning-light",
+      "textColor": "color-warning",
+      "stroke": null
+    },
+    {
+      "name": "info",
+      "class": "--info",
+      "fill": "color-brand-light",
+      "textColor": "color-brand",
+      "stroke": null
+    },
+    {
+      "name": "success",
+      "class": "--success",
+      "fill": "color-success-light",
+      "textColor": "color-success",
+      "stroke": null
+    }
+  ],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "focus-visible",
+    "entering",
+    "exiting"
+  ],
+  "layout": {
+    "display": null,
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": "radius-xl",
+  "textStyle": null
+}

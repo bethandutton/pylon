@@ -1,0 +1,36 @@
+{
+  "name": "Date Picker",
+  "baseClass": "pylon-date-picker",
+  "elements": [
+    {
+      "name": "trigger",
+      "class": "pylon-date-picker__trigger"
+    },
+    {
+      "name": "popover",
+      "class": "pylon-date-picker__popover"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "hovered",
+    "disabled",
+    "focus-visible",
+    "invalid",
+    "focused",
+    "entering",
+    "exiting"
+  ],
+  "layout": {
+    "display": "inline-flex",
+    "flexDirection": "column",
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

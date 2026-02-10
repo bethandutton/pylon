@@ -1,0 +1,42 @@
+{
+  "name": "Native Select",
+  "baseClass": "pylon-native-select",
+  "elements": [],
+  "variants": [],
+  "sizes": [
+    {
+      "name": "sm",
+      "class": "--sm",
+      "height": 32,
+      "paddingV": null,
+      "paddingH": null,
+      "textStyle": null
+    },
+    {
+      "name": "lg",
+      "class": "--lg",
+      "height": 44,
+      "paddingV": null,
+      "paddingH": null,
+      "textStyle": null
+    }
+  ],
+  "flags": [],
+  "states": [
+    "default",
+    "hovered",
+    "disabled",
+    "focus-visible",
+    "invalid",
+    "focused"
+  ],
+  "layout": {
+    "display": "block",
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": "radius-md",
+  "textStyle": "body"
+}

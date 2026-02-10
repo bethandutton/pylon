@@ -1,0 +1,34 @@
+{
+  "name": "Radio",
+  "baseClass": "pylon-radio",
+  "elements": [
+    {
+      "name": "circle",
+      "class": "pylon-radio__circle"
+    },
+    {
+      "name": "dot",
+      "class": "pylon-radio__dot"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "hovered",
+    "selected",
+    "disabled",
+    "focus-visible",
+    "invalid"
+  ],
+  "layout": {
+    "display": "inline-flex",
+    "flexDirection": null,
+    "alignItems": "center",
+    "justifyContent": null,
+    "gap": 8
+  },
+  "cornerRadius": null,
+  "textStyle": "body"
+}

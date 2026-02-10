@@ -1,0 +1,57 @@
+{
+  "name": "Card",
+  "baseClass": "pylon-card",
+  "elements": [
+    {
+      "name": "header",
+      "class": "pylon-card__header"
+    },
+    {
+      "name": "body",
+      "class": "pylon-card__body"
+    },
+    {
+      "name": "footer",
+      "class": "pylon-card__footer"
+    }
+  ],
+  "variants": [
+    {
+      "name": "shadow",
+      "class": "--shadow",
+      "fill": null,
+      "textColor": null,
+      "stroke": "transparent"
+    },
+    {
+      "name": "elevated",
+      "class": "--elevated",
+      "fill": null,
+      "textColor": null,
+      "stroke": "transparent"
+    },
+    {
+      "name": "interactive",
+      "class": "--interactive",
+      "fill": null,
+      "textColor": null,
+      "stroke": "color-subtle"
+    }
+  ],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "focus-visible",
+    "hovered"
+  ],
+  "layout": {
+    "display": null,
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": "radius-lg",
+  "textStyle": null
+}

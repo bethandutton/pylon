@@ -1,0 +1,30 @@
+{
+  "name": "Checkbox",
+  "baseClass": "pylon-checkbox",
+  "elements": [
+    {
+      "name": "box",
+      "class": "pylon-checkbox__box"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "hovered",
+    "selected",
+    "disabled",
+    "focus-visible",
+    "invalid"
+  ],
+  "layout": {
+    "display": "inline-flex",
+    "flexDirection": null,
+    "alignItems": "center",
+    "justifyContent": null,
+    "gap": 8
+  },
+  "cornerRadius": null,
+  "textStyle": "body"
+}

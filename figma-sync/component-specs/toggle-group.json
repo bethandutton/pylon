@@ -1,0 +1,30 @@
+{
+  "name": "Toggle Group",
+  "baseClass": "pylon-toggle-group",
+  "elements": [
+    {
+      "name": "item",
+      "class": "pylon-toggle-group__item"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "hovered",
+    "pressed",
+    "selected",
+    "disabled",
+    "focus-visible"
+  ],
+  "layout": {
+    "display": "inline-flex",
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": "radius-md",
+  "textStyle": null
+}

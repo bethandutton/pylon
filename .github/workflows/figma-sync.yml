@@ -1,0 +1,50 @@
+name: Figma Sync
+
+on:
+  push:
+    branches: [main]
+    paths: ['src/scss/**']
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install figma-sync dependencies
+        run: cd figma-sync && npm ci
+
+      - name: Extract tokens and component specs
+        run: cd figma-sync && npm run extract:all
+
+      - name: Commit updated artifacts if changed
+        run: |
+          if ! git diff --quiet figma-sync/tokens.json figma-sync/component-specs/; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add figma-sync/tokens.json figma-sync/component-specs/
+            git commit -m "chore: update Figma sync artifacts"
+            git push
+          fi
+
+  code-connect:
+    runs-on: ubuntu-latest
+    needs: extract
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install figma-sync dependencies
+        run: cd figma-sync && npm ci
+
+      - name: Publish Code Connect
+        run: cd figma-sync && npx figma connect publish
+        env:
+          FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}

@@ -1,0 +1,58 @@
+{
+  "name": "Alert",
+  "baseClass": "pylon-alert",
+  "elements": [
+    {
+      "name": "content",
+      "class": "pylon-alert__content"
+    },
+    {
+      "name": "title",
+      "class": "pylon-alert__title"
+    }
+  ],
+  "variants": [
+    {
+      "name": "info",
+      "class": "--info",
+      "fill": "color-brand-light",
+      "textColor": "color-brand-dark",
+      "stroke": "color-brand"
+    },
+    {
+      "name": "success",
+      "class": "--success",
+      "fill": "color-success-light",
+      "textColor": "color-success",
+      "stroke": "color-success"
+    },
+    {
+      "name": "warning",
+      "class": "--warning",
+      "fill": "color-warning-light",
+      "textColor": "color-warning",
+      "stroke": "color-warning"
+    },
+    {
+      "name": "error",
+      "class": "--error",
+      "fill": "color-error-light",
+      "textColor": "color-error",
+      "stroke": "color-error"
+    }
+  ],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default"
+  ],
+  "layout": {
+    "display": "flex",
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": 12
+  },
+  "cornerRadius": "radius-md",
+  "textStyle": "body"
+}

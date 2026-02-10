@@ -1,0 +1,56 @@
+{
+  "name": "Badge",
+  "baseClass": "pylon-badge",
+  "elements": [],
+  "variants": [
+    {
+      "name": "neutral",
+      "class": "--neutral",
+      "fill": "color-surface",
+      "textColor": "color-muted",
+      "stroke": null
+    },
+    {
+      "name": "brand",
+      "class": "--brand",
+      "fill": "color-brand-light",
+      "textColor": "color-brand-dark",
+      "stroke": null
+    },
+    {
+      "name": "success",
+      "class": "--success",
+      "fill": "color-success-light",
+      "textColor": "color-success",
+      "stroke": null
+    },
+    {
+      "name": "warning",
+      "class": "--warning",
+      "fill": "color-warning-light",
+      "textColor": "color-warning",
+      "stroke": null
+    },
+    {
+      "name": "error",
+      "class": "--error",
+      "fill": "color-error-light",
+      "textColor": "color-error",
+      "stroke": null
+    }
+  ],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default"
+  ],
+  "layout": {
+    "display": "inline-flex",
+    "flexDirection": null,
+    "alignItems": "center",
+    "justifyContent": null,
+    "gap": 4
+  },
+  "cornerRadius": "radius-full",
+  "textStyle": "small"
+}

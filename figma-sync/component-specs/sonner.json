@@ -1,0 +1,38 @@
+{
+  "name": "Sonner",
+  "baseClass": "pylon-sonner",
+  "elements": [
+    {
+      "name": "toast-list",
+      "class": "pylon-sonner__toast-list"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [
+    {
+      "name": "top-right",
+      "class": "--top-right"
+    },
+    {
+      "name": "top-left",
+      "class": "--top-left"
+    },
+    {
+      "name": "bottom-left",
+      "class": "--bottom-left"
+    }
+  ],
+  "states": [
+    "default"
+  ],
+  "layout": {
+    "display": "flex",
+    "flexDirection": "column-reverse",
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": 12
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

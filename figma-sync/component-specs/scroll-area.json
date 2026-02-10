@@ -1,0 +1,44 @@
+{
+  "name": "Scroll Area",
+  "baseClass": "pylon-scroll-area",
+  "elements": [
+    {
+      "name": "viewport",
+      "class": "pylon-scroll-area__viewport"
+    },
+    {
+      "name": "scrollbar",
+      "class": "pylon-scroll-area__scrollbar"
+    },
+    {
+      "name": "thumb",
+      "class": "pylon-scroll-area__thumb"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [
+    {
+      "name": "vertical",
+      "class": "--vertical"
+    },
+    {
+      "name": "horizontal",
+      "class": "--horizontal"
+    }
+  ],
+  "states": [
+    "default",
+    "hovered",
+    "pressed"
+  ],
+  "layout": {
+    "display": null,
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

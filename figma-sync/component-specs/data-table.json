@@ -1,0 +1,40 @@
+{
+  "name": "Data Table",
+  "baseClass": "pylon-data-table",
+  "elements": [
+    {
+      "name": "toolbar",
+      "class": "pylon-data-table__toolbar"
+    },
+    {
+      "name": "search",
+      "class": "pylon-data-table__search"
+    },
+    {
+      "name": "filters",
+      "class": "pylon-data-table__filters"
+    },
+    {
+      "name": "pagination",
+      "class": "pylon-data-table__pagination"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "hovered",
+    "focus-visible",
+    "focused"
+  ],
+  "layout": {
+    "display": "flex",
+    "flexDirection": "column",
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": "radius-lg",
+  "textStyle": null
+}

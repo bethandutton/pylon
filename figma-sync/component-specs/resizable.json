@@ -1,0 +1,37 @@
+{
+  "name": "Resizable",
+  "baseClass": "pylon-resizable",
+  "elements": [
+    {
+      "name": "panel",
+      "class": "pylon-resizable__panel"
+    },
+    {
+      "name": "handle",
+      "class": "pylon-resizable__handle"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [
+    {
+      "name": "vertical",
+      "class": "--vertical"
+    }
+  ],
+  "states": [
+    "default",
+    "hovered",
+    "pressed",
+    "focus-visible"
+  ],
+  "layout": {
+    "display": "flex",
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

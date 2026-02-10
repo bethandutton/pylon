@@ -1,0 +1,37 @@
+{
+  "name": "Input",
+  "baseClass": "pylon-input",
+  "elements": [],
+  "variants": [],
+  "sizes": [
+    {
+      "name": "sm",
+      "class": "--sm",
+      "height": 32,
+      "paddingV": 4,
+      "paddingH": 8,
+      "textStyle": "body-sm"
+    },
+    {
+      "name": "lg",
+      "class": "--lg",
+      "height": 44,
+      "paddingV": 12,
+      "paddingH": 16,
+      "textStyle": "body-lg"
+    }
+  ],
+  "flags": [],
+  "states": [
+    "default"
+  ],
+  "layout": {
+    "display": null,
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

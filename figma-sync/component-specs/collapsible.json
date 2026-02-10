@@ -1,0 +1,35 @@
+{
+  "name": "Collapsible",
+  "baseClass": "pylon-collapsible",
+  "elements": [
+    {
+      "name": "trigger",
+      "class": "pylon-collapsible__trigger"
+    },
+    {
+      "name": "content",
+      "class": "pylon-collapsible__content"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "hovered",
+    "pressed",
+    "disabled",
+    "focus-visible",
+    "entering",
+    "exiting"
+  ],
+  "layout": {
+    "display": null,
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Switch",
+  "baseClass": "pylon-switch",
+  "elements": [
+    {
+      "name": "track",
+      "class": "pylon-switch__track"
+    },
+    {
+      "name": "thumb",
+      "class": "pylon-switch__thumb"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "selected",
+    "disabled",
+    "focus-visible"
+  ],
+  "layout": {
+    "display": "inline-flex",
+    "flexDirection": null,
+    "alignItems": "center",
+    "justifyContent": null,
+    "gap": 12
+  },
+  "cornerRadius": null,
+  "textStyle": "body"
+}

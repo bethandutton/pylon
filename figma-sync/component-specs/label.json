@@ -1,0 +1,28 @@
+{
+  "name": "Label",
+  "baseClass": "pylon-label",
+  "elements": [],
+  "variants": [
+    {
+      "name": "required",
+      "class": "--required",
+      "fill": null,
+      "textColor": "color-error",
+      "stroke": null
+    }
+  ],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default"
+  ],
+  "layout": {
+    "display": "inline-block",
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": "label"
+}

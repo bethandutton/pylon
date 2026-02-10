@@ -1,0 +1,41 @@
+{
+  "name": "Combobox",
+  "baseClass": "pylon-combobox",
+  "elements": [
+    {
+      "name": "input",
+      "class": "pylon-combobox__input"
+    },
+    {
+      "name": "listbox",
+      "class": "pylon-combobox__listbox"
+    },
+    {
+      "name": "option",
+      "class": "pylon-combobox__option"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "hovered",
+    "selected",
+    "disabled",
+    "focus-visible",
+    "invalid",
+    "focused",
+    "entering",
+    "exiting"
+  ],
+  "layout": {
+    "display": "inline-flex",
+    "flexDirection": "column",
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

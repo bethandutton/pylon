@@ -1,0 +1,45 @@
+{
+  "name": "Spinner",
+  "baseClass": "pylon-spinner",
+  "elements": [],
+  "variants": [],
+  "sizes": [
+    {
+      "name": "sm",
+      "class": "--sm",
+      "height": 16,
+      "paddingV": null,
+      "paddingH": null,
+      "textStyle": null
+    },
+    {
+      "name": "md",
+      "class": "--md",
+      "height": 24,
+      "paddingV": null,
+      "paddingH": null,
+      "textStyle": null
+    },
+    {
+      "name": "lg",
+      "class": "--lg",
+      "height": 32,
+      "paddingV": null,
+      "paddingH": null,
+      "textStyle": null
+    }
+  ],
+  "flags": [],
+  "states": [
+    "default"
+  ],
+  "layout": {
+    "display": "inline-block",
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": "radius-full",
+  "textStyle": null
+}

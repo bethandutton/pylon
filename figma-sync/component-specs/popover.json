@@ -1,0 +1,27 @@
+{
+  "name": "Popover",
+  "baseClass": "pylon-popover",
+  "elements": [
+    {
+      "name": "body",
+      "class": "pylon-popover__body"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "entering",
+    "exiting"
+  ],
+  "layout": {
+    "display": null,
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": "radius-lg",
+  "textStyle": null
+}

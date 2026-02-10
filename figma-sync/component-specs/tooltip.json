@@ -1,0 +1,22 @@
+{
+  "name": "Tooltip",
+  "baseClass": "pylon-tooltip",
+  "elements": [],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "entering",
+    "exiting"
+  ],
+  "layout": {
+    "display": null,
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": "radius-sm",
+  "textStyle": "caption"
+}

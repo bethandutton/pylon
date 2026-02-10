@@ -1,0 +1,46 @@
+{
+  "name": "Menu",
+  "baseClass": "pylon-menu",
+  "elements": [
+    {
+      "name": "item",
+      "class": "pylon-menu__item"
+    },
+    {
+      "name": "separator",
+      "class": "pylon-menu__separator"
+    },
+    {
+      "name": "section-title",
+      "class": "pylon-menu__section-title"
+    }
+  ],
+  "variants": [
+    {
+      "name": "danger",
+      "class": "--danger",
+      "fill": "color-error-light",
+      "textColor": "color-error",
+      "stroke": null
+    }
+  ],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "selected",
+    "disabled",
+    "focus-visible",
+    "focused",
+    "hovered"
+  ],
+  "layout": {
+    "display": null,
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

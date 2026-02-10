@@ -1,0 +1,58 @@
+{
+  "name": "Avatar",
+  "baseClass": "pylon-avatar",
+  "elements": [
+    {
+      "name": "initials",
+      "class": "pylon-avatar__initials"
+    }
+  ],
+  "variants": [],
+  "sizes": [
+    {
+      "name": "sm",
+      "class": "--sm",
+      "height": 24,
+      "paddingV": null,
+      "paddingH": null,
+      "textStyle": "small"
+    },
+    {
+      "name": "md",
+      "class": "--md",
+      "height": 32,
+      "paddingV": null,
+      "paddingH": null,
+      "textStyle": "caption"
+    },
+    {
+      "name": "lg",
+      "class": "--lg",
+      "height": 40,
+      "paddingV": null,
+      "paddingH": null,
+      "textStyle": "body-sm"
+    },
+    {
+      "name": "xl",
+      "class": "--xl",
+      "height": 56,
+      "paddingV": null,
+      "paddingH": null,
+      "textStyle": "body"
+    }
+  ],
+  "flags": [],
+  "states": [
+    "default"
+  ],
+  "layout": {
+    "display": "inline-flex",
+    "flexDirection": null,
+    "alignItems": "center",
+    "justifyContent": "center",
+    "gap": null
+  },
+  "cornerRadius": "radius-full",
+  "textStyle": null
+}

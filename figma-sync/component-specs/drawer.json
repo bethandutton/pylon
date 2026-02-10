@@ -1,0 +1,44 @@
+{
+  "name": "Drawer",
+  "baseClass": "pylon-drawer",
+  "elements": [
+    {
+      "name": "overlay",
+      "class": "pylon-drawer__overlay"
+    },
+    {
+      "name": "panel",
+      "class": "pylon-drawer__panel"
+    },
+    {
+      "name": "header",
+      "class": "pylon-drawer__header"
+    },
+    {
+      "name": "body",
+      "class": "pylon-drawer__body"
+    },
+    {
+      "name": "footer",
+      "class": "pylon-drawer__footer"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "focus-visible",
+    "entering",
+    "exiting"
+  ],
+  "layout": {
+    "display": null,
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

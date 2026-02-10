@@ -1,0 +1,62 @@
+{
+  "name": "Modal",
+  "baseClass": "pylon-modal",
+  "elements": [
+    {
+      "name": "header",
+      "class": "pylon-modal__header"
+    },
+    {
+      "name": "title",
+      "class": "pylon-modal__title"
+    },
+    {
+      "name": "body",
+      "class": "pylon-modal__body"
+    },
+    {
+      "name": "footer",
+      "class": "pylon-modal__footer"
+    }
+  ],
+  "variants": [],
+  "sizes": [
+    {
+      "name": "sm",
+      "class": "--sm",
+      "height": null,
+      "paddingV": null,
+      "paddingH": null,
+      "textStyle": null
+    },
+    {
+      "name": "lg",
+      "class": "--lg",
+      "height": null,
+      "paddingV": null,
+      "paddingH": null,
+      "textStyle": null
+    }
+  ],
+  "flags": [
+    {
+      "name": "full",
+      "class": "--full"
+    }
+  ],
+  "states": [
+    "default",
+    "focus-visible",
+    "entering",
+    "exiting"
+  ],
+  "layout": {
+    "display": null,
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": "radius-xl",
+  "textStyle": null
+}

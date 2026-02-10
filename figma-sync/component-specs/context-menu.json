@@ -1,0 +1,23 @@
+{
+  "name": "Context Menu",
+  "baseClass": "pylon-context-menu",
+  "elements": [],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "focus-visible",
+    "entering",
+    "exiting"
+  ],
+  "layout": {
+    "display": null,
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": "radius-lg",
+  "textStyle": null
+}

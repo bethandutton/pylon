@@ -1,0 +1,40 @@
+{
+  "name": "Nav",
+  "baseClass": "pylon-nav",
+  "elements": [
+    {
+      "name": "item",
+      "class": "pylon-nav__item"
+    },
+    {
+      "name": "section-title",
+      "class": "pylon-nav__section-title"
+    }
+  ],
+  "variants": [
+    {
+      "name": "active",
+      "class": "--active",
+      "fill": "color-brand-light",
+      "textColor": "color-brand-dark",
+      "stroke": null
+    }
+  ],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "hovered",
+    "selected",
+    "focus-visible"
+  ],
+  "layout": {
+    "display": "flex",
+    "flexDirection": "column",
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": 4
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

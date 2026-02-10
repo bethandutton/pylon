@@ -1,0 +1,37 @@
+{
+  "name": "Tabs",
+  "baseClass": "pylon-tabs",
+  "elements": [
+    {
+      "name": "list",
+      "class": "pylon-tabs__list"
+    },
+    {
+      "name": "tab",
+      "class": "pylon-tabs__tab"
+    },
+    {
+      "name": "panel",
+      "class": "pylon-tabs__panel"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "hovered",
+    "selected",
+    "disabled",
+    "focus-visible"
+  ],
+  "layout": {
+    "display": null,
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

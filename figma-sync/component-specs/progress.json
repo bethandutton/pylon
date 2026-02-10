@@ -1,0 +1,33 @@
+{
+  "name": "Progress",
+  "baseClass": "pylon-progress",
+  "elements": [
+    {
+      "name": "label",
+      "class": "pylon-progress__label"
+    },
+    {
+      "name": "track",
+      "class": "pylon-progress__track"
+    },
+    {
+      "name": "fill",
+      "class": "pylon-progress__fill"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default"
+  ],
+  "layout": {
+    "display": "flex",
+    "flexDirection": "column",
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": 8
+  },
+  "cornerRadius": null,
+  "textStyle": null
+}

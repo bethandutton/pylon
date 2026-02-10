@@ -1,0 +1,30 @@
+{
+  "name": "Breadcrumbs",
+  "baseClass": "pylon-breadcrumbs",
+  "elements": [
+    {
+      "name": "item",
+      "class": "pylon-breadcrumbs__item"
+    },
+    {
+      "name": "separator",
+      "class": "pylon-breadcrumbs__separator"
+    }
+  ],
+  "variants": [],
+  "sizes": [],
+  "flags": [],
+  "states": [
+    "default",
+    "hovered"
+  ],
+  "layout": {
+    "display": "flex",
+    "flexDirection": null,
+    "alignItems": "center",
+    "justifyContent": null,
+    "gap": 8
+  },
+  "cornerRadius": null,
+  "textStyle": "body-sm"
+}

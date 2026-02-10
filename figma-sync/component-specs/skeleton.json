@@ -1,0 +1,33 @@
+{
+  "name": "Skeleton",
+  "baseClass": "pylon-skeleton",
+  "elements": [],
+  "variants": [],
+  "sizes": [],
+  "flags": [
+    {
+      "name": "text",
+      "class": "--text"
+    },
+    {
+      "name": "circle",
+      "class": "--circle"
+    },
+    {
+      "name": "rect",
+      "class": "--rect"
+    }
+  ],
+  "states": [
+    "default"
+  ],
+  "layout": {
+    "display": null,
+    "flexDirection": null,
+    "alignItems": null,
+    "justifyContent": null,
+    "gap": null
+  },
+  "cornerRadius": "radius-md",
+  "textStyle": null
+}

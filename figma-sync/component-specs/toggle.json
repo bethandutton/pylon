@@ -1,0 +1,58 @@
+{
+  "name": "Toggle",
+  "baseClass": "pylon-toggle",
+  "elements": [],
+  "variants": [
+    {
+      "name": "pressed",
+      "class": "--pressed",
+      "fill": "color-surface",
+      "textColor": "color-base",
+      "stroke": "color-subtle"
+    }
+  ],
+  "sizes": [
+    {
+      "name": "sm",
+      "class": "--sm",
+      "height": 32,
+      "paddingV": 4,
+      "paddingH": 12,
+      "textStyle": null
+    },
+    {
+      "name": "md",
+      "class": "--md",
+      "height": 38,
+      "paddingV": 8,
+      "paddingH": 16,
+      "textStyle": null
+    },
+    {
+      "name": "lg",
+      "class": "--lg",
+      "height": 44,
+      "paddingV": 12,
+      "paddingH": 24,
+      "textStyle": null
+    }
+  ],
+  "flags": [],
+  "states": [
+    "default",
+    "hovered",
+    "pressed",
+    "selected",
+    "disabled",
+    "focus-visible"
+  ],
+  "layout": {
+    "display": "inline-flex",
+    "flexDirection": null,
+    "alignItems": "center",
+    "justifyContent": "center",
+    "gap": 8
+  },
+  "cornerRadius": "radius-md",
+  "textStyle": "body-sm"
+}
