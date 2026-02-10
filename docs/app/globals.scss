@@ -15,14 +15,148 @@ $color-brand-light:     #E8EFF4;
 $font-family-base: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 $font-family-mono: 'Geist Mono', 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
 
+$header-height: 56px;
+
 // Load compiled Pylon CSS
 @import '../../dist/pylon.css';
 
 // ---- Docs-specific styles ----
 
+// Header
+.docs-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $header-height;
+  background: $color-white;
+  border-bottom: 1px solid $color-border;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 24px;
+    gap: 24px;
+  }
+
+  &__logo {
+    font-family: $font-family-base;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: $color-dark;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+
+    span {
+      color: $color-brand;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 16px;
+  }
+
+  &__nav-link {
+    font-family: $font-family-base;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $color-muted;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 120ms ease, color 120ms ease;
+
+    &:hover {
+      background: $color-surface;
+      color: $color-base;
+      text-decoration: none;
+    }
+
+    &--active {
+      color: $color-base;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+  }
+
+  &__search-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 32px;
+    padding: 0 12px;
+    background: $color-white;
+    border: 1px solid $color-border;
+    border-radius: 6px;
+    font-family: $font-family-base;
+    font-size: 0.8125rem;
+    color: $color-subtle;
+    cursor: pointer;
+    transition: border-color 120ms ease, background 120ms ease;
+    min-width: 200px;
+
+    &:hover {
+      border-color: $color-subtle;
+      background: $color-surface;
+    }
+
+    span {
+      flex: 1;
+      text-align: left;
+    }
+
+    .pylon-kbd {
+      font-size: 0.6875rem;
+      margin-left: auto;
+    }
+  }
+
+  &__theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid $color-border;
+    border-radius: 6px;
+    background: $color-white;
+    cursor: pointer;
+    color: $color-muted;
+    transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+    flex-shrink: 0;
+
+    &:hover {
+      background: $color-surface;
+      border-color: $color-subtle;
+      color: $color-base;
+    }
+  }
+}
+
+// Layout
 .docs-layout {
   display: flex;
   min-height: 100vh;
+  padding-top: $header-height;
 }
 
 // Sidebar
@@ -30,30 +164,13 @@ $font-family-mono: 'Geist Mono', 'JetBrains Mono', 'Fira Code', 'Consolas', mono
   width: 260px;
   border-right: 1px solid $color-border;
   background: $color-white;
-  padding: 24px 0;
+  padding: 16px 0;
   position: fixed;
-  top: 0;
+  top: $header-height;
   left: 0;
   bottom: 0;
   overflow-y: auto;
   z-index: 100;
-
-  &__logo {
-    font-family: $font-family-base;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: $color-dark;
-    padding: 0 24px 24px;
-    border-bottom: 1px solid $color-border;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    span {
-      color: $color-brand;
-    }
-  }
 
   &__section {
     padding: 0 12px;
@@ -99,6 +216,11 @@ $font-family-mono: 'Geist Mono', 'JetBrains Mono', 'Fira Code', 'Consolas', mono
   margin-left: 260px;
   flex: 1;
   min-width: 0;
+}
+
+// When sidebar is absent (e.g. /create page)
+.docs-layout:not(:has(.docs-sidebar)) .docs-main {
+  margin-left: 0;
 }
 
 .docs-content {
@@ -378,5 +500,181 @@ $font-family-mono: 'Geist Mono', 'JetBrains Mono', 'Fira Code', 'Consolas', mono
     font-size: 0.75rem;
     color: $color-subtle;
     flex-shrink: 0;
+  }
+}
+
+// ---- Dark mode overrides for docs chrome ----
+
+[data-theme="dark"] {
+  body {
+    background: #1A1A18;
+    color: $color-surface;
+  }
+
+  .docs-header {
+    background: #1A1A18;
+    border-bottom-color: #3D3D3A;
+  }
+
+  .docs-header__logo {
+    color: $color-surface;
+  }
+
+  .docs-header__nav-link {
+    color: $color-subtle;
+
+    &:hover {
+      background: #2A2A28;
+      color: $color-surface;
+    }
+
+    &--active {
+      color: $color-white;
+    }
+  }
+
+  .docs-header__search-trigger {
+    background: #2A2A28;
+    border-color: #3D3D3A;
+    color: $color-subtle;
+
+    &:hover {
+      background: #3D3D3A;
+      border-color: $color-muted;
+    }
+  }
+
+  .docs-header__theme-toggle {
+    background: #2A2A28;
+    border-color: #3D3D3A;
+    color: $color-subtle;
+
+    &:hover {
+      background: #3D3D3A;
+      color: $color-surface;
+    }
+  }
+
+  .docs-sidebar {
+    background: #1A1A18;
+    border-right-color: #3D3D3A;
+  }
+
+  .docs-sidebar__section-title {
+    color: $color-muted;
+  }
+
+  .docs-sidebar__link {
+    color: $color-subtle;
+
+    &:hover {
+      background: #2A2A28;
+      color: $color-surface;
+    }
+
+    &--active {
+      background: #2A3A4A;
+      color: $color-brand;
+    }
+  }
+
+  .docs-content {
+    h1, h2, h3, h4, h5, h6 {
+      color: $color-surface;
+    }
+
+    h2 {
+      border-bottom-color: #3D3D3A;
+    }
+
+    p, li {
+      color: $color-subtle;
+    }
+
+    a {
+      color: $color-brand;
+
+      &:hover {
+        color: $color-brand-light;
+      }
+    }
+
+    > code {
+      background: #2A2A28;
+      color: $color-surface;
+    }
+
+    table {
+      th {
+        background: #2A2A28;
+        color: $color-surface;
+        border-bottom-color: #3D3D3A;
+      }
+
+      td {
+        color: $color-subtle;
+        border-bottom-color: #3D3D3A;
+      }
+
+      code {
+        background: #2A2A28;
+      }
+    }
+  }
+
+  .docs-preview {
+    border-color: #3D3D3A;
+  }
+
+  .docs-preview__render {
+    background: #222220;
+  }
+
+  .docs-preview__header {
+    background: #2A2A28;
+    border-bottom-color: #3D3D3A;
+  }
+
+  .docs-preview__code {
+    border-top-color: #3D3D3A;
+  }
+
+  .docs-page-header__description {
+    color: $color-subtle;
+  }
+
+  .docs-color-swatch {
+    border-color: #3D3D3A;
+  }
+
+  .docs-color-swatch__name {
+    color: $color-surface;
+  }
+
+  .docs-color-swatch__info {
+    background: #222220;
+  }
+
+  .docs-color-swatch__value {
+    color: $color-subtle;
+  }
+
+  .docs-type-row {
+    border-bottom-color: #3D3D3A;
+  }
+
+  .docs-type-row__label,
+  .docs-spacing-row__label {
+    color: $color-subtle;
+  }
+
+  .docs-type-row__meta,
+  .docs-spacing-row__value {
+    color: $color-muted;
+  }
+
+  .docs-spacing-row__bar {
+    background: #2A3A4A;
+    border-color: $color-brand-dark;
   }
 }

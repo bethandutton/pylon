@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const nav = [
+const docsNav = [
   {
     title: 'Getting Started',
     items: [
@@ -21,6 +21,9 @@ const nav = [
       { label: 'Theming', href: '/foundations/theming' },
     ],
   },
+];
+
+const componentsNav = [
   {
     title: 'Components',
     items: [
@@ -38,14 +41,33 @@ const nav = [
   },
 ];
 
+const blocksNav = [
+  {
+    title: 'Blocks',
+    items: [
+      { label: 'Overview', href: '/blocks' },
+    ],
+  },
+];
+
 export function Sidebar() {
   const pathname = usePathname();
 
+  // Hide sidebar on create page
+  if (pathname.startsWith('/create')) {
+    return null;
+  }
+
+  // Contextual nav based on route
+  let nav = docsNav;
+  if (pathname.startsWith('/components')) {
+    nav = componentsNav;
+  } else if (pathname.startsWith('/blocks')) {
+    nav = blocksNav;
+  }
+
   return (
     <aside className="docs-sidebar">
-      <div className="docs-sidebar__logo">
-        <span>/</span> Pylon
-      </div>
       {nav.map((section) => (
         <div key={section.title} className="docs-sidebar__section">
           <div className="docs-sidebar__section-title">{section.title}</div>
