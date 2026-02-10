@@ -1,0 +1,30 @@
+{
+  "name": "@pylon/core",
+  "version": "0.1.0",
+  "description": "Pylon — Enterprise SaaS component library",
+  "main": "dist/pylon.css",
+  "sass": "src/scss/main.scss",
+  "files": [
+    "dist/",
+    "src/scss/"
+  ],
+  "scripts": {
+    "build": "sass src/scss/main.scss dist/pylon.css",
+    "build:min": "sass src/scss/main.scss dist/pylon.min.css --style compressed",
+    "watch": "sass --watch src/scss/main.scss dist/pylon.css",
+    "prepublishOnly": "npm run build && npm run build:min"
+  },
+  "keywords": [
+    "design-system",
+    "component-library",
+    "sass",
+    "scss",
+    "enterprise",
+    "accessible",
+    "aria"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.97.3"
+  }
+}

@@ -1,0 +1,382 @@
+@use 'sass:map';
+
+// Import Pylon tokens directly for use in the docs site
+$color-dark:            #1A1A18;
+$color-base:            #3D3D3A;
+$color-muted:           #6B6B66;
+$color-subtle:          #B0B0AC;
+$color-border:          #D4D4D1;
+$color-surface:         #F7F7F6;
+$color-white:           #FFFFFF;
+$color-brand:           #6B8BA4;
+$color-brand-dark:      #456A84;
+$color-brand-light:     #E8EFF4;
+
+$font-family-base: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+// Load compiled Pylon CSS
+@import '../../dist/pylon.css';
+
+// ---- Docs-specific styles ----
+
+.docs-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+// Sidebar
+.docs-sidebar {
+  width: 260px;
+  border-right: 1px solid $color-border;
+  background: $color-white;
+  padding: 24px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  z-index: 100;
+
+  &__logo {
+    font-family: $font-family-base;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $color-dark;
+    padding: 0 24px 24px;
+    border-bottom: 1px solid $color-border;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    span {
+      color: $color-brand;
+    }
+  }
+
+  &__section {
+    padding: 0 12px;
+    margin-bottom: 8px;
+  }
+
+  &__section-title {
+    font-family: $font-family-base;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $color-muted;
+    padding: 12px 12px 6px;
+  }
+
+  &__link {
+    display: block;
+    font-family: $font-family-base;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $color-muted;
+    padding: 7px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 120ms ease, color 120ms ease;
+
+    &:hover {
+      background: $color-surface;
+      color: $color-base;
+      text-decoration: none;
+    }
+
+    &--active {
+      background: $color-brand-light;
+      color: $color-brand-dark;
+    }
+  }
+}
+
+// Main content
+.docs-main {
+  margin-left: 260px;
+  flex: 1;
+  min-width: 0;
+}
+
+.docs-content {
+  max-width: 768px;
+  padding: 48px 48px 96px;
+
+  // MDX prose styles
+  h1 {
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    margin-top: 48px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $color-border;
+  }
+
+  h3 {
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  p {
+    margin-bottom: 16px;
+    color: $color-muted;
+    line-height: 1.7;
+  }
+
+  ul, ol {
+    margin-bottom: 16px;
+    padding-left: 24px;
+    list-style: disc;
+
+    li {
+      margin-bottom: 6px;
+      color: $color-muted;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  > code {
+    font-family: $font-family-mono;
+    font-size: 0.8125rem;
+    background: $color-surface;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: $color-dark;
+  }
+
+  a {
+    color: $color-brand;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-brand-dark;
+      text-decoration: underline;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    font-size: 0.875rem;
+
+    th {
+      text-align: left;
+      font-weight: 600;
+      color: $color-base;
+      padding: 10px 16px;
+      border-bottom: 1px solid $color-border;
+      background: $color-surface;
+    }
+
+    td {
+      padding: 10px 16px;
+      border-bottom: 1px solid $color-border;
+      color: $color-muted;
+    }
+
+    code {
+      font-family: $font-family-mono;
+      font-size: 0.8125rem;
+      background: $color-surface;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  }
+}
+
+// Component preview
+.docs-preview {
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  overflow: hidden;
+
+  &__render {
+    padding: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 12px;
+    background: $color-white;
+  }
+
+  &__render--col {
+    flex-direction: column;
+  }
+
+  &__render--center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__code {
+    border-top: 1px solid $color-border;
+    background: #1e1e2e;
+    padding: 20px 24px;
+    overflow-x: auto;
+
+    pre {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      color: #cdd6f4;
+      font-family: $font-family-mono;
+      font-size: 0.8125rem;
+      line-height: 1.7;
+    }
+
+    code {
+      font-family: $font-family-mono;
+      background: transparent;
+      padding: 0;
+      color: inherit;
+      border-radius: 0;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    border-bottom: 1px solid $color-border;
+    background: $color-surface;
+
+    &-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: $color-muted;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+  }
+}
+
+// Page header
+.docs-page-header {
+  margin-bottom: 32px;
+
+  &__overline {
+    font-family: $font-family-base;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $color-brand;
+    margin-bottom: 8px;
+  }
+
+  &__description {
+    font-size: 1.0625rem;
+    color: $color-muted;
+    line-height: 1.6;
+    margin-top: 4px;
+  }
+}
+
+// Colour swatches
+.docs-color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.docs-color-swatch {
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  overflow: hidden;
+
+  &__preview {
+    height: 80px;
+  }
+
+  &__info {
+    padding: 12px;
+  }
+
+  &__name {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: $color-base;
+    margin-bottom: 2px;
+  }
+
+  &__value {
+    font-family: $font-family-mono;
+    font-size: 0.75rem;
+    color: $color-muted;
+  }
+}
+
+// Type scale
+.docs-type-row {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid $color-border;
+
+  &__label {
+    width: 100px;
+    flex-shrink: 0;
+    font-family: $font-family-mono;
+    font-size: 0.75rem;
+    color: $color-muted;
+  }
+
+  &__sample {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__meta {
+    font-family: $font-family-mono;
+    font-size: 0.6875rem;
+    color: $color-subtle;
+    flex-shrink: 0;
+    text-align: right;
+    width: 160px;
+  }
+}
+
+// Spacing scale
+.docs-spacing-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+
+  &__label {
+    width: 60px;
+    font-family: $font-family-mono;
+    font-size: 0.75rem;
+    color: $color-muted;
+    flex-shrink: 0;
+  }
+
+  &__bar {
+    height: 24px;
+    background: $color-brand-light;
+    border: 1px solid $color-brand;
+    border-radius: 4px;
+  }
+
+  &__value {
+    font-family: $font-family-mono;
+    font-size: 0.75rem;
+    color: $color-subtle;
+    flex-shrink: 0;
+  }
+}

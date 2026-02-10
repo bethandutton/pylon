@@ -1,0 +1,139 @@
+// ============================================
+// PYLON BUTTON
+// Pairs with React Aria <Button>
+// ============================================
+
+@use 'sass:color';
+@use 'sass:map';
+@use '../tokens' as *;
+
+.pylon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: map.get($spacing, 2);
+  font-family: $font-family-base;
+  font-weight: 600;
+  line-height: 1;
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: background $transition-base, border-color $transition-base, color $transition-base, box-shadow $transition-base;
+  white-space: nowrap;
+  text-decoration: none;
+
+  // Sizes
+  &--sm {
+    font-size: map.get($font-sizes, 'body-sm');
+    padding: map.get($spacing, 2) map.get($spacing, 3);
+    height: 32px;
+  }
+
+  &--md {
+    font-size: map.get($font-sizes, 'body');
+    padding: map.get($spacing, 2) map.get($spacing, 4);
+    height: 38px;
+  }
+
+  &--lg {
+    font-size: map.get($font-sizes, 'body-lg');
+    padding: map.get($spacing, 3) map.get($spacing, 6);
+    height: 44px;
+  }
+
+  // Primary
+  &--primary {
+    background: $color-brand;
+    color: $color-white;
+    border-color: $color-brand;
+
+    &:hover,
+    &[data-hovered] {
+      background: $color-brand-dark;
+      border-color: $color-brand-dark;
+    }
+
+    &:active,
+    &[data-pressed] {
+      background: color.adjust($color-brand-dark, $lightness: -5%);
+    }
+  }
+
+  // Secondary
+  &--secondary {
+    background: $color-white;
+    color: $color-base;
+    border-color: $color-border;
+
+    &:hover,
+    &[data-hovered] {
+      background: $color-surface;
+      border-color: $color-subtle;
+    }
+
+    &:active,
+    &[data-pressed] {
+      background: color.adjust($color-surface, $lightness: -2%);
+    }
+  }
+
+  // Ghost
+  &--ghost {
+    background: transparent;
+    color: $color-base;
+    border-color: transparent;
+
+    &:hover,
+    &[data-hovered] {
+      background: $color-surface;
+    }
+
+    &:active,
+    &[data-pressed] {
+      background: $color-border;
+    }
+  }
+
+  // Danger
+  &--danger {
+    background: $color-error;
+    color: $color-white;
+    border-color: $color-error;
+
+    &:hover,
+    &[data-hovered] {
+      background: color.adjust($color-error, $lightness: -8%);
+      border-color: color.adjust($color-error, $lightness: -8%);
+    }
+
+    &:active,
+    &[data-pressed] {
+      background: color.adjust($color-error, $lightness: -12%);
+    }
+  }
+
+  // Disabled (React Aria uses data-disabled)
+  &[data-disabled],
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  // Focus (React Aria uses data-focus-visible)
+  &[data-focus-visible] {
+    box-shadow: $focus-ring;
+  }
+
+  // Full width
+  &--block {
+    width: 100%;
+  }
+
+  // Icon-only
+  &--icon {
+    padding: map.get($spacing, 2);
+    width: 38px;
+    height: 38px;
+  }
+}

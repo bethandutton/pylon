@@ -1,0 +1,103 @@
+// ============================================
+// PYLON TYPOGRAPHY
+// Text style mixin and utility classes
+// ============================================
+
+@use 'sass:map';
+@use 'tokens' as *;
+
+@mixin text-style($style) {
+  font-family: $font-family-base;
+  font-size: map.get($font-sizes, $style);
+  font-weight: map.get($font-weights, $style);
+  line-height: map.get($line-heights, $style);
+  letter-spacing: map.get($letter-spacings, $style);
+  color: map.get($text-colors, $style);
+}
+
+// Heading classes
+.display-1  { @include text-style('display-1'); }
+.display-2  { @include text-style('display-2'); }
+.h1         { @include text-style('h1'); }
+.h2         { @include text-style('h2'); }
+.h3         { @include text-style('h3'); }
+.h4         { @include text-style('h4'); }
+.h5         { @include text-style('h5'); }
+.h6         { @include text-style('h6'); }
+
+// Body classes
+.body-lg    { @include text-style('body-lg'); }
+.body       { @include text-style('body'); }
+.body-sm    { @include text-style('body-sm'); }
+
+// Utility text classes
+.caption    { @include text-style('caption'); }
+.label      { @include text-style('label'); }
+.small      { @include text-style('small'); }
+
+.overline {
+  @include text-style('overline');
+  text-transform: uppercase;
+}
+
+// Colour overrides
+.text--primary   { color: $color-brand; }
+.text--muted     { color: $color-muted; }
+.text--subtle    { color: $color-subtle; }
+.text--inverse   { color: $color-white; }
+.text--error     { color: $color-error; }
+.text--success   { color: $color-success; }
+.text--warning   { color: $color-warning; }
+
+// Weight overrides
+.text--regular   { font-weight: 400; }
+.text--medium    { font-weight: 500; }
+.text--semibold  { font-weight: 600; }
+.text--bold      { font-weight: 700; }
+
+// Alignment
+.text--left      { text-align: left; }
+.text--center    { text-align: center; }
+.text--right     { text-align: right; }
+
+// Semantic element defaults
+h1 { @include text-style('h1'); }
+h2 { @include text-style('h2'); }
+h3 { @include text-style('h3'); }
+h4 { @include text-style('h4'); }
+h5 { @include text-style('h5'); }
+h6 { @include text-style('h6'); }
+p  { @include text-style('body'); }
+
+blockquote {
+  @include text-style('body-lg');
+  font-style: italic;
+  padding-left: map.get($spacing, 4);
+  border-left: 3px solid $color-brand;
+  color: $color-muted;
+}
+
+code {
+  font-family: $font-family-mono;
+  font-size: 0.875em;
+  padding: 0.15em 0.4em;
+  background: $color-surface;
+  border-radius: $radius-sm;
+  color: $color-dark;
+}
+
+pre {
+  font-family: $font-family-mono;
+  font-size: map.get($font-sizes, 'body-sm');
+  line-height: 1.6;
+  padding: map.get($spacing, 4);
+  background: $color-surface;
+  border-radius: $radius-md;
+  overflow-x: auto;
+  color: $color-dark;
+
+  code {
+    padding: 0;
+    background: none;
+  }
+}

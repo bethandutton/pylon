@@ -1,0 +1,99 @@
+// ============================================
+// PYLON CHECKBOX & SWITCH
+// Pairs with React Aria <Checkbox>, <Switch>
+// ============================================
+
+@use 'sass:map';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: map.get($spacing, 2);
+  cursor: pointer;
+  @include text-style('body');
+
+  &__box {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid $color-border;
+    border-radius: $radius-sm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background $transition-fast, border-color $transition-fast;
+    flex-shrink: 0;
+  }
+
+  &[data-hovered] .pylon-checkbox__box {
+    border-color: $color-subtle;
+  }
+
+  &[data-selected] .pylon-checkbox__box {
+    background: $color-brand;
+    border-color: $color-brand;
+    color: $color-white;
+  }
+
+  &[data-focus-visible] .pylon-checkbox__box {
+    box-shadow: $focus-ring;
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &[data-invalid] .pylon-checkbox__box {
+    border-color: $color-error;
+  }
+}
+
+// Switch / Toggle
+.pylon-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: map.get($spacing, 3);
+  cursor: pointer;
+  @include text-style('body');
+
+  &__track {
+    width: 36px;
+    height: 20px;
+    border-radius: $radius-full;
+    background: $color-subtle;
+    position: relative;
+    transition: background $transition-base;
+    flex-shrink: 0;
+  }
+
+  &__thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: $radius-full;
+    background: $color-white;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform $transition-base;
+    box-shadow: $shadow-sm;
+  }
+
+  &[data-selected] .pylon-switch__track {
+    background: $color-brand;
+  }
+
+  &[data-selected] .pylon-switch__thumb {
+    transform: translateX(16px);
+  }
+
+  &[data-focus-visible] .pylon-switch__track {
+    box-shadow: $focus-ring;
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,98 @@
+// ============================================
+// PYLON MODAL / DIALOG
+// Pairs with React Aria <Dialog>, <Modal>, <ModalOverlay>
+// ============================================
+
+@use 'sass:map';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+// Overlay backdrop
+.pylon-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba($color-dark, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: map.get($spacing, 4);
+
+  // React Aria entering/exiting states
+  &[data-entering] {
+    animation: pylon-fade-in $transition-base;
+  }
+
+  &[data-exiting] {
+    animation: pylon-fade-out $transition-base;
+  }
+}
+
+.pylon-modal {
+  background: $color-white;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-lg;
+  max-width: 560px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+
+  &[data-entering] {
+    animation: pylon-slide-up $transition-base;
+  }
+
+  &[data-exiting] {
+    animation: pylon-slide-down $transition-base;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: map.get($spacing, 5);
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__title {
+    @include text-style('h4');
+    margin: 0;
+  }
+
+  &__body {
+    padding: map.get($spacing, 5);
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: map.get($spacing, 3);
+    padding: map.get($spacing, 4) map.get($spacing, 5);
+    border-top: 1px solid $color-border;
+  }
+
+  // Size variants
+  &--sm { max-width: 400px; }
+  &--lg { max-width: 720px; }
+  &--full { max-width: 90vw; }
+}
+
+// Animations
+@keyframes pylon-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pylon-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes pylon-slide-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pylon-slide-down {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(8px); }
+}

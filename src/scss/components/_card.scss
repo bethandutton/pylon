@@ -1,0 +1,52 @@
+// ============================================
+// PYLON CARD
+// ============================================
+
+@use 'sass:map';
+@use '../tokens' as *;
+
+.pylon-card {
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+
+  &--shadow {
+    border-color: transparent;
+    box-shadow: $shadow-sm;
+  }
+
+  &--elevated {
+    border-color: transparent;
+    box-shadow: $shadow-md;
+  }
+
+  &--interactive {
+    cursor: pointer;
+    transition: box-shadow $transition-base, border-color $transition-base;
+
+    &:hover {
+      box-shadow: $shadow-md;
+      border-color: $color-subtle;
+    }
+
+    &[data-focus-visible] {
+      box-shadow: $focus-ring;
+    }
+  }
+
+  &__header {
+    padding: map.get($spacing, 4) map.get($spacing, 5);
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__body {
+    padding: map.get($spacing, 4) map.get($spacing, 5);
+  }
+
+  &__footer {
+    padding: map.get($spacing, 3) map.get($spacing, 5);
+    border-top: 1px solid $color-border;
+    background: $color-surface;
+  }
+}

@@ -1,0 +1,124 @@
+// ============================================
+// PYLON RESET
+// Minimal, modern CSS reset
+// ============================================
+
+@use 'sass:map';
+@use 'tokens' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: map.get($font-sizes, 'body');
+  font-weight: map.get($font-weights, 'body');
+  line-height: map.get($line-heights, 'body');
+  color: $color-base;
+  background-color: $color-white;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+a {
+  color: $color-brand;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-brand-dark;
+    text-decoration: underline;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// ARIA focus styles
+*:focus-visible {
+  outline: none;
+  box-shadow: $focus-ring;
+  border-radius: $radius-sm;
+}
+
+// Screen reader only
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Skip to content link
+.sr-skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+
+  &:focus {
+    position: fixed;
+    top: map.get($spacing, 4);
+    left: map.get($spacing, 4);
+    width: auto;
+    height: auto;
+    padding: map.get($spacing, 3) map.get($spacing, 4);
+    background: $color-white;
+    color: $color-brand-dark;
+    font-weight: 600;
+    box-shadow: $shadow-lg;
+    border-radius: $radius-md;
+    z-index: 9999;
+  }
+}

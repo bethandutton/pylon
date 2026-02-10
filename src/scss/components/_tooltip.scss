@@ -1,0 +1,106 @@
+// ============================================
+// PYLON TOOLTIP & POPOVER
+// Pairs with React Aria <Tooltip>, <Popover>
+// ============================================
+
+@use 'sass:map';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-tooltip {
+  @include text-style('caption');
+  background: $color-dark;
+  color: $color-white;
+  padding: map.get($spacing, 1) map.get($spacing, 2);
+  border-radius: $radius-sm;
+  max-width: 240px;
+  pointer-events: none;
+  z-index: 1100;
+
+  &[data-entering] {
+    animation: pylon-fade-in $transition-fast;
+  }
+
+  &[data-exiting] {
+    animation: pylon-fade-out $transition-fast;
+  }
+}
+
+.pylon-popover {
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+  z-index: 1050;
+  overflow: hidden;
+
+  &[data-entering] {
+    animation: pylon-fade-in $transition-fast;
+  }
+
+  &[data-exiting] {
+    animation: pylon-fade-out $transition-fast;
+  }
+
+  &__body {
+    padding: map.get($spacing, 3);
+  }
+}
+
+// Menu (React Aria <Menu>)
+.pylon-menu {
+  padding: map.get($spacing, 1) 0;
+  min-width: 180px;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: map.get($spacing, 3);
+    padding: map.get($spacing, 2) map.get($spacing, 3);
+    font-size: map.get($font-sizes, 'body');
+    color: $color-base;
+    cursor: pointer;
+    transition: background $transition-fast;
+    outline: none;
+
+    &:hover,
+    &[data-focused] {
+      background: $color-surface;
+    }
+
+    &[data-selected] {
+      color: $color-brand-dark;
+      font-weight: 500;
+    }
+
+    &[data-disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &[data-focus-visible] {
+      box-shadow: inset $focus-ring;
+    }
+
+    &--danger {
+      color: $color-error;
+
+      &:hover,
+      &[data-focused] {
+        background: $color-error-light;
+      }
+    }
+  }
+
+  &__separator {
+    height: 1px;
+    background: $color-border;
+    margin: map.get($spacing, 1) 0;
+  }
+
+  &__section-title {
+    @include text-style('overline');
+    text-transform: uppercase;
+    padding: map.get($spacing, 2) map.get($spacing, 3) map.get($spacing, 1);
+  }
+}

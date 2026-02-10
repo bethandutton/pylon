@@ -1,0 +1,83 @@
+// ============================================
+// PYLON TABLE
+// Pairs with React Aria <Table>
+// ============================================
+
+@use 'sass:map';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: map.get($font-sizes, 'body');
+
+  // Header
+  &__head {
+    background: $color-surface;
+  }
+
+  &__header-cell {
+    @include text-style('label');
+    padding: map.get($spacing, 3) map.get($spacing, 4);
+    text-align: left;
+    border-bottom: 1px solid $color-border;
+    white-space: nowrap;
+    user-select: none;
+
+    // Sortable (React Aria sort states)
+    &[data-sort-direction] {
+      cursor: pointer;
+
+      &:hover {
+        background: $color-border;
+      }
+    }
+
+    &[data-focus-visible] {
+      box-shadow: inset $focus-ring;
+    }
+  }
+
+  // Body
+  &__row {
+    border-bottom: 1px solid $color-border;
+    transition: background $transition-fast;
+
+    &:hover,
+    &[data-hovered] {
+      background: $color-surface;
+    }
+
+    &[data-selected] {
+      background: $color-brand-light;
+    }
+
+    &[data-focus-visible] {
+      box-shadow: inset $focus-ring;
+    }
+  }
+
+  &__cell {
+    padding: map.get($spacing, 3) map.get($spacing, 4);
+    color: $color-base;
+    vertical-align: middle;
+  }
+
+  // Compact variant
+  &--compact {
+    font-size: map.get($font-sizes, 'body-sm');
+
+    .pylon-table__header-cell,
+    .pylon-table__cell {
+      padding: map.get($spacing, 2) map.get($spacing, 3);
+    }
+  }
+
+  // Striped
+  &--striped {
+    .pylon-table__row:nth-child(even) {
+      background: $color-surface;
+    }
+  }
+}

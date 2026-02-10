@@ -1,0 +1,119 @@
+// ============================================
+// PYLON INPUT / TEXT FIELD
+// Pairs with React Aria <TextField>, <NumberField>, <SearchField>
+// ============================================
+
+@use 'sass:map';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-field {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacing, 1);
+
+  // Label (React Aria <Label>)
+  &__label {
+    @include text-style('label');
+  }
+
+  // Description text
+  &__description {
+    @include text-style('caption');
+    color: $color-muted;
+  }
+
+  // Error message (React Aria <FieldError>)
+  &__error {
+    @include text-style('caption');
+    color: $color-error;
+  }
+}
+
+// Shared base input styles extracted as a mixin (replaces @extend)
+@mixin pylon-input-base {
+  font-family: $font-family-base;
+  font-size: map.get($font-sizes, 'body');
+  line-height: map.get($line-heights, 'body');
+  color: $color-base;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  padding: map.get($spacing, 2) map.get($spacing, 3);
+  height: 38px;
+  width: 100%;
+  transition: border-color $transition-base, box-shadow $transition-base;
+
+  &::placeholder {
+    color: $color-subtle;
+  }
+
+  &:hover,
+  &[data-hovered] {
+    border-color: $color-subtle;
+  }
+
+  &:focus,
+  &[data-focused] {
+    border-color: $color-brand;
+    box-shadow: 0 0 0 1px $color-brand;
+    outline: none;
+  }
+
+  &[data-focus-visible] {
+    box-shadow: $focus-ring;
+  }
+
+  // Invalid (React Aria uses data-invalid)
+  &[data-invalid] {
+    border-color: $color-error;
+
+    &:focus,
+    &[data-focused] {
+      box-shadow: 0 0 0 1px $color-error;
+    }
+  }
+
+  &[data-disabled],
+  &:disabled {
+    opacity: 0.5;
+    background: $color-surface;
+    cursor: not-allowed;
+  }
+}
+
+.pylon-input {
+  @include pylon-input-base;
+
+  // Sizes
+  &--sm {
+    font-size: map.get($font-sizes, 'body-sm');
+    height: 32px;
+    padding: map.get($spacing, 1) map.get($spacing, 2);
+  }
+
+  &--lg {
+    font-size: map.get($font-sizes, 'body-lg');
+    height: 44px;
+    padding: map.get($spacing, 3) map.get($spacing, 4);
+  }
+}
+
+// Textarea
+.pylon-textarea {
+  @include pylon-input-base;
+  height: auto;
+  min-height: 80px;
+  resize: vertical;
+}
+
+// Select trigger (React Aria <Select>)
+.pylon-select {
+  @include pylon-input-base;
+  cursor: pointer;
+  appearance: none;
+  padding-right: map.get($spacing, 8);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B6B66' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}

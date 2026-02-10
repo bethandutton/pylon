@@ -1,0 +1,49 @@
+// ============================================
+// PYLON ALERT
+// ============================================
+
+@use 'sass:map';
+@use '../tokens' as *;
+
+.pylon-alert {
+  display: flex;
+  gap: map.get($spacing, 3);
+  padding: map.get($spacing, 3) map.get($spacing, 4);
+  border-radius: $radius-md;
+  font-size: map.get($font-sizes, 'body');
+  line-height: map.get($line-heights, 'body');
+  border: 1px solid transparent;
+
+  &__content {
+    flex: 1;
+  }
+
+  &__title {
+    font-weight: 600;
+    margin-bottom: map.get($spacing, 1);
+  }
+
+  &--info {
+    background: $color-brand-light;
+    color: $color-brand-dark;
+    border-color: $color-brand;
+  }
+
+  &--success {
+    background: $color-success-light;
+    color: $color-success;
+    border-color: $color-success;
+  }
+
+  &--warning {
+    background: $color-warning-light;
+    color: $color-warning;
+    border-color: $color-warning;
+  }
+
+  &--error {
+    background: $color-error-light;
+    color: $color-error;
+    border-color: $color-error;
+  }
+}
