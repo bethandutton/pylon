@@ -39,6 +39,10 @@
     flex-direction: column;
     overflow-y: auto;
 
+    &[data-focus-visible] {
+      outline: none; box-shadow: $focus-ring;
+    }
+
     &[data-entering] {
       animation: pylon-slide-in-right $transition-base;
     }

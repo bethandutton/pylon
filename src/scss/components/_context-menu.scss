@@ -20,6 +20,10 @@
   min-width: 180px;
   padding: map.get($spacing, 1) 0;
 
+  &[data-focus-visible] {
+    outline: none; box-shadow: $focus-ring;
+  }
+
   &[data-entering] {
     animation: pylon-fade-in $transition-fast;
   }

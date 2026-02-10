@@ -26,9 +26,7 @@
   }
 
   &__search {
-    font-family: $font-family-base;
-    font-size: map.get($font-sizes, 'body-sm');
-    line-height: map.get($line-heights, 'body-sm');
+    @include text-style('body-sm');
     color: $color-base;
     background: $color-white;
     border: 1px solid $color-border;
@@ -51,11 +49,10 @@
     &[data-focused] {
       border-color: $color-brand;
       box-shadow: 0 0 0 1px $color-brand;
-      outline: none;
     }
 
     &[data-focus-visible] {
-      box-shadow: $focus-ring;
+      outline: none; box-shadow: $focus-ring;
     }
   }
 

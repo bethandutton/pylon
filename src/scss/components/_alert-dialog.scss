@@ -17,6 +17,10 @@
   width: 100%;
   padding: map.get($spacing, 6);
 
+  &[data-focus-visible] {
+    outline: none; box-shadow: $focus-ring;
+  }
+
   &[data-entering] {
     animation: pylon-alert-dialog-in $transition-base;
   }

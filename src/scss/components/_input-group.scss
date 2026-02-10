@@ -47,6 +47,10 @@
     position: relative;
   }
 
+  > .pylon-input[data-focus-visible] {
+    outline: none; box-shadow: $focus-ring;
+  }
+
   &__addon {
     @include text-style('body-sm');
     display: flex;

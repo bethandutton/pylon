@@ -1,0 +1,71 @@
+name: Pylon CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run build:min
+      - name: Check CSS output exists
+        run: |
+          test -f dist/pylon.css || (echo "FAIL: dist/pylon.css not found" && exit 1)
+          test -f dist/pylon.min.css || (echo "FAIL: dist/pylon.min.css not found" && exit 1)
+          echo "Build output: $(wc -c < dist/pylon.css) bytes (full), $(wc -c < dist/pylon.min.css) bytes (min)"
+
+  custom-styles:
+    name: No Custom Styling
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for manual text styling in components
+        run: bash scripts/check-custom-styles.sh
+
+  accessibility:
+    name: Accessibility
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check a11y compliance
+        run: bash scripts/check-a11y.sh
+
+  security:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Audit dependencies
+        run: npm audit --audit-level=high
+
+  typecheck:
+    name: Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Build Pylon CSS for docs
+        run: npm run build
+      - name: Install docs dependencies
+        run: cd docs && npm ci
+      - name: Run TypeScript type check
+        run: cd docs && npx tsc --noEmit

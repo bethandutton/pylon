@@ -33,6 +33,10 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+
+    &[data-focus-visible] {
+      outline: none; box-shadow: $focus-ring;
+    }
   }
 
   &__header {

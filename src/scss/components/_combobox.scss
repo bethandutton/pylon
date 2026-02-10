@@ -16,9 +16,7 @@
   width: 100%;
 
   &__input {
-    font-family: $font-family-base;
-    font-size: map.get($font-sizes, 'body');
-    line-height: map.get($line-heights, 'body');
+    @include text-style('body');
     color: $color-base;
     background: $color-white;
     border: 1px solid $color-border;
@@ -41,11 +39,10 @@
     &[data-focused] {
       border-color: $color-brand;
       box-shadow: 0 0 0 1px $color-brand;
-      outline: none;
     }
 
     &[data-focus-visible] {
-      box-shadow: $focus-ring;
+      outline: none; box-shadow: $focus-ring;
     }
 
     &[data-invalid] {
@@ -97,7 +94,6 @@
     padding: map.get($spacing, 2) map.get($spacing, 3);
     cursor: pointer;
     transition: background $transition-fast;
-    outline: none;
 
     &:hover,
     &[data-focused] {
@@ -106,7 +102,6 @@
 
     &[data-selected] {
       color: $color-brand-dark;
-      font-weight: 500;
     }
 
     &[data-disabled] {
@@ -115,7 +110,7 @@
     }
 
     &[data-focus-visible] {
-      box-shadow: inset $focus-ring;
+      outline: none; box-shadow: inset $focus-ring;
     }
   }
 }

@@ -35,7 +35,6 @@
     cursor: pointer;
     background: none;
     transition: background $transition-fast, border-color $transition-fast;
-    outline: none;
     text-decoration: none;
 
     &:hover,
@@ -67,7 +66,7 @@
     }
 
     &[data-focus-visible] {
-      box-shadow: $focus-ring;
+      outline: none; box-shadow: $focus-ring;
     }
   }
 
@@ -85,7 +84,6 @@
     cursor: pointer;
     background: $color-white;
     transition: background $transition-fast;
-    outline: none;
 
     &:hover,
     &[data-hovered] {
@@ -102,7 +100,7 @@
     }
 
     &[data-focus-visible] {
-      box-shadow: $focus-ring;
+      outline: none; box-shadow: $focus-ring;
     }
   }
 

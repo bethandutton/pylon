@@ -32,9 +32,7 @@
 
 // Shared base input styles extracted as a mixin (replaces @extend)
 @mixin pylon-input-base {
-  font-family: $font-family-base;
-  font-size: map.get($font-sizes, 'body');
-  line-height: map.get($line-heights, 'body');
+  @include text-style('body');
   color: $color-base;
   background: $color-white;
   border: 1px solid $color-border;
@@ -57,11 +55,10 @@
   &[data-focused] {
     border-color: $color-brand;
     box-shadow: 0 0 0 1px $color-brand;
-    outline: none;
   }
 
   &[data-focus-visible] {
-    box-shadow: $focus-ring;
+    outline: none; box-shadow: $focus-ring;
   }
 
   // Invalid (React Aria uses data-invalid)
@@ -87,13 +84,13 @@
 
   // Sizes
   &--sm {
-    font-size: map.get($font-sizes, 'body-sm');
+    @include text-style('body-sm');
     height: 32px;
     padding: map.get($spacing, 1) map.get($spacing, 2);
   }
 
   &--lg {
-    font-size: map.get($font-sizes, 'body-lg');
+    @include text-style('body-lg');
     height: 44px;
     padding: map.get($spacing, 3) map.get($spacing, 4);
   }

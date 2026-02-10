@@ -12,7 +12,13 @@
     "build": "sass src/scss/main.scss dist/pylon.css",
     "build:min": "sass src/scss/main.scss dist/pylon.min.css --style compressed",
     "watch": "sass --watch src/scss/main.scss dist/pylon.css",
-    "prepublishOnly": "npm run build && npm run build:min"
+    "prepublishOnly": "npm run build && npm run build:min",
+    "test": "npm run test:build && npm run test:styles && npm run test:a11y && npm run test:security",
+    "test:build": "sass src/scss/main.scss dist/pylon.css",
+    "test:styles": "bash scripts/check-custom-styles.sh",
+    "test:a11y": "bash scripts/check-a11y.sh",
+    "test:security": "npm audit --audit-level=high",
+    "test:types": "cd docs && npx tsc --noEmit"
   },
   "keywords": [
     "design-system",

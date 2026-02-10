@@ -74,7 +74,6 @@
     gap: map.get($spacing, 3);
     padding: map.get($spacing, 2) map.get($spacing, 3);
     @include text-style('body');
-    font-weight: 500;
     color: $color-muted;
     border-radius: $radius-md;
     cursor: pointer;
@@ -123,13 +122,12 @@
 
     &[data-current] {
       color: $color-base;
-      font-weight: 500;
       pointer-events: none;
     }
   }
 
   &__separator {
+    @include text-style('small');
     color: $color-subtle;
-    font-size: 0.75em;
   }
 }

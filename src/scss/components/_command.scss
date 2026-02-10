@@ -27,9 +27,7 @@
   }
 
   &__input {
-    font-family: $font-family-base;
-    font-size: map.get($font-sizes, 'body');
-    line-height: map.get($line-heights, 'body');
+    @include text-style('body');
     color: $color-base;
     width: 100%;
     padding: map.get($spacing, 3) map.get($spacing, 4);
@@ -37,14 +35,13 @@
     border: none;
     border-bottom: 1px solid $color-border;
     border-radius: $radius-lg $radius-lg 0 0;
-    outline: none;
 
     &::placeholder {
       color: $color-subtle;
     }
 
     &[data-focus-visible] {
-      box-shadow: $focus-ring;
+      outline: none; box-shadow: $focus-ring;
     }
   }
 
@@ -67,7 +64,6 @@
     padding: map.get($spacing, 2) map.get($spacing, 4);
     cursor: pointer;
     transition: background $transition-fast;
-    outline: none;
 
     &:hover,
     &[data-focused] {
@@ -84,7 +80,7 @@
     }
 
     &[data-focus-visible] {
-      box-shadow: inset $focus-ring;
+      outline: none; box-shadow: inset $focus-ring;
     }
   }
 

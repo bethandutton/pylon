@@ -35,7 +35,6 @@
     border: none;
     cursor: pointer;
     transition: background $transition-fast;
-    outline: none;
 
     &:hover,
     &[data-hovered] {
@@ -52,7 +51,7 @@
     }
 
     &[data-focus-visible] {
-      box-shadow: $focus-ring;
+      outline: none; box-shadow: $focus-ring;
     }
   }
 
