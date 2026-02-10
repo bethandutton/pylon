@@ -1,0 +1,62 @@
+// ============================================
+// PYLON TOGGLE GROUP
+// Group of toggle buttons
+// Pairs with React Aria <ToggleButtonGroup>
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-toggle-group {
+  display: inline-flex;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  overflow: hidden;
+
+  &__item {
+    @include text-style('body-sm');
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: map.get($spacing, 2);
+    padding: map.get($spacing, 2) map.get($spacing, 4);
+    background: $color-white;
+    border: none;
+    border-right: 1px solid $color-border;
+    cursor: pointer;
+    transition: background $transition-base, color $transition-base;
+    white-space: nowrap;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &:hover,
+    &[data-hovered] {
+      background: $color-surface;
+    }
+
+    &[data-pressed] {
+      background: color.adjust($color-surface, $lightness: -2%);
+    }
+
+    &[data-selected] {
+      background: $color-brand-light;
+      color: $color-brand-dark;
+    }
+
+    &[data-focus-visible] {
+      box-shadow: $focus-ring;
+      z-index: 1;
+      position: relative;
+    }
+
+    &[data-disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+}

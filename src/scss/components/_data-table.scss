@@ -1,0 +1,78 @@
+// ============================================
+// PYLON DATA TABLE
+// Extended table with toolbar, search, filters, pagination
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-data-table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  background: $color-white;
+  overflow: hidden;
+
+  &__toolbar {
+    display: flex;
+    align-items: center;
+    gap: map.get($spacing, 3);
+    padding: map.get($spacing, 3) map.get($spacing, 4);
+    border-bottom: 1px solid $color-border;
+    flex-wrap: wrap;
+  }
+
+  &__search {
+    font-family: $font-family-base;
+    font-size: map.get($font-sizes, 'body-sm');
+    line-height: map.get($line-heights, 'body-sm');
+    color: $color-base;
+    background: $color-white;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    padding: map.get($spacing, 1) map.get($spacing, 3);
+    height: 32px;
+    min-width: 200px;
+    transition: border-color $transition-base, box-shadow $transition-base;
+
+    &::placeholder {
+      color: $color-subtle;
+    }
+
+    &:hover,
+    &[data-hovered] {
+      border-color: $color-subtle;
+    }
+
+    &:focus,
+    &[data-focused] {
+      border-color: $color-brand;
+      box-shadow: 0 0 0 1px $color-brand;
+      outline: none;
+    }
+
+    &[data-focus-visible] {
+      box-shadow: $focus-ring;
+    }
+  }
+
+  &__filters {
+    display: flex;
+    align-items: center;
+    gap: map.get($spacing, 2);
+    margin-left: auto;
+  }
+
+  &__pagination {
+    @include text-style('body-sm');
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: map.get($spacing, 3);
+    padding: map.get($spacing, 3) map.get($spacing, 4);
+    border-top: 1px solid $color-border;
+  }
+}

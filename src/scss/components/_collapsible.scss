@@ -1,0 +1,79 @@
+// ============================================
+// PYLON COLLAPSIBLE
+// Simple show/hide toggle
+// Pairs with React Aria <Disclosure>
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-collapsible {
+  &__trigger {
+    @include text-style('body');
+    display: inline-flex;
+    align-items: center;
+    gap: map.get($spacing, 2);
+    padding: map.get($spacing, 2) map.get($spacing, 3);
+    background: none;
+    border: none;
+    border-radius: $radius-md;
+    cursor: pointer;
+    transition: background $transition-fast;
+    outline: none;
+
+    &:hover,
+    &[data-hovered] {
+      background: $color-surface;
+    }
+
+    &[data-pressed] {
+      background: color.adjust($color-surface, $lightness: -2%);
+    }
+
+    &[data-disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &[data-focus-visible] {
+      box-shadow: $focus-ring;
+    }
+  }
+
+  &__content {
+    overflow: hidden;
+    padding: map.get($spacing, 2) map.get($spacing, 3);
+
+    &[data-entering] {
+      animation: pylon-collapsible-open $transition-base;
+    }
+
+    &[data-exiting] {
+      animation: pylon-collapsible-close $transition-base;
+    }
+  }
+}
+
+@keyframes pylon-collapsible-open {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+@keyframes pylon-collapsible-close {
+  from {
+    opacity: 1;
+    max-height: 500px;
+  }
+  to {
+    opacity: 0;
+    max-height: 0;
+  }
+}

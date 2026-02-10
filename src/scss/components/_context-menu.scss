@@ -1,0 +1,30 @@
+// ============================================
+// PYLON CONTEXT MENU
+// Right-click triggered menu
+// Reuses pylon-menu styles from _tooltip.scss
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-context-menu {
+  position: fixed;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+  z-index: 1100;
+  overflow: hidden;
+  min-width: 180px;
+  padding: map.get($spacing, 1) 0;
+
+  &[data-entering] {
+    animation: pylon-fade-in $transition-fast;
+  }
+
+  &[data-exiting] {
+    animation: pylon-fade-out $transition-fast;
+  }
+}

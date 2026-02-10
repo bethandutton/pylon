@@ -1,0 +1,63 @@
+// ============================================
+// PYLON INPUT OTP
+// OTP / PIN code input with individual slots
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-input-otp {
+  display: inline-flex;
+  gap: map.get($spacing, 2);
+
+  &__slot {
+    @include text-style('h4');
+    width: 40px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    background: $color-white;
+    transition: border-color $transition-base, box-shadow $transition-base;
+    caret-color: $color-brand;
+
+    &:hover,
+    &[data-hovered] {
+      border-color: $color-subtle;
+    }
+
+    &[data-focused] {
+      border-color: $color-brand;
+      box-shadow: 0 0 0 1px $color-brand;
+      outline: none;
+    }
+
+    &[data-focus-visible] {
+      box-shadow: $focus-ring;
+    }
+
+    &[data-disabled] {
+      opacity: 0.5;
+      background: $color-surface;
+      cursor: not-allowed;
+    }
+
+    &[data-invalid] {
+      border-color: $color-error;
+
+      &[data-focused] {
+        box-shadow: 0 0 0 1px $color-error;
+      }
+    }
+
+    // Filled slot
+    &--filled {
+      border-color: $color-brand;
+    }
+  }
+}

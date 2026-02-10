@@ -1,0 +1,98 @@
+// ============================================
+// PYLON ALERT DIALOG
+// Confirmation dialog with icon area
+// Pairs with React Aria <AlertDialog>
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-alert-dialog {
+  background: $color-white;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-lg;
+  max-width: 480px;
+  width: 100%;
+  padding: map.get($spacing, 6);
+
+  &[data-entering] {
+    animation: pylon-alert-dialog-in $transition-base;
+  }
+
+  &[data-exiting] {
+    animation: pylon-alert-dialog-out $transition-base;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-full;
+    margin-bottom: map.get($spacing, 4);
+
+    // Variant backgrounds for the icon container
+    &--danger {
+      background: $color-error-light;
+      color: $color-error;
+    }
+
+    &--warning {
+      background: $color-warning-light;
+      color: $color-warning;
+    }
+
+    &--info {
+      background: $color-brand-light;
+      color: $color-brand;
+    }
+
+    &--success {
+      background: $color-success-light;
+      color: $color-success;
+    }
+  }
+
+  &__title {
+    @include text-style('h4');
+    margin: 0 0 map.get($spacing, 2) 0;
+  }
+
+  &__description {
+    @include text-style('body');
+    margin: 0 0 map.get($spacing, 6) 0;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: map.get($spacing, 3);
+  }
+}
+
+@keyframes pylon-alert-dialog-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pylon-alert-dialog-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}

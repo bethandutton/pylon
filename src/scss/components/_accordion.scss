@@ -1,0 +1,93 @@
+// ============================================
+// PYLON ACCORDION
+// Collapsible sections
+// Pairs with React Aria <Disclosure>
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-accordion {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+
+  &__item {
+    border-bottom: 1px solid $color-border;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__trigger {
+    @include text-style('body');
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: map.get($spacing, 4) map.get($spacing, 5);
+    background: $color-white;
+    border: none;
+    cursor: pointer;
+    transition: background $transition-fast;
+    outline: none;
+
+    &:hover,
+    &[data-hovered] {
+      background: $color-surface;
+    }
+
+    &[data-pressed] {
+      background: color.adjust($color-surface, $lightness: -2%);
+    }
+
+    &[data-disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &[data-focus-visible] {
+      box-shadow: $focus-ring;
+    }
+  }
+
+  &__content {
+    @include text-style('body-sm');
+    padding: 0 map.get($spacing, 5) map.get($spacing, 4);
+
+    &[data-entering] {
+      animation: pylon-accordion-expand $transition-base;
+    }
+
+    &[data-exiting] {
+      animation: pylon-accordion-collapse $transition-base;
+    }
+  }
+}
+
+@keyframes pylon-accordion-expand {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+@keyframes pylon-accordion-collapse {
+  from {
+    opacity: 1;
+    max-height: 500px;
+  }
+  to {
+    opacity: 0;
+    max-height: 0;
+  }
+}

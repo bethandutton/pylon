@@ -1,0 +1,91 @@
+// ============================================
+// PYLON CALENDAR
+// Date grid for date selection
+// Pairs with React Aria <Calendar>
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-calendar {
+  display: inline-flex;
+  flex-direction: column;
+  gap: map.get($spacing, 2);
+  padding: map.get($spacing, 4);
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+
+  &__header {
+    @include text-style('label');
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: map.get($spacing, 1) map.get($spacing, 2);
+  }
+
+  &__grid {
+    border-collapse: collapse;
+
+    th {
+      @include text-style('label');
+      padding: map.get($spacing, 2);
+      text-align: center;
+      width: 36px;
+    }
+  }
+
+  &__cell {
+    @include text-style('body-sm');
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-full;
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: background $transition-fast, color $transition-fast;
+    outline: none;
+
+    &:hover,
+    &[data-hovered] {
+      background: $color-surface;
+    }
+
+    &[data-pressed] {
+      background: color.adjust($color-surface, $lightness: -3%);
+    }
+
+    &--today {
+      border: 1px solid $color-brand;
+    }
+
+    &--selected,
+    &[data-selected] {
+      background: $color-brand;
+      color: $color-white;
+
+      &:hover,
+      &[data-hovered] {
+        background: $color-brand-dark;
+      }
+    }
+
+    &--outside {
+      color: $color-subtle;
+    }
+
+    &[data-disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &[data-focus-visible] {
+      box-shadow: $focus-ring;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+// ============================================
+// PYLON AVATAR
+// User avatar circles with fallback initials
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-full;
+  border: 1px solid $color-border;
+  background: $color-surface;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  // Default size (md)
+  width: 32px;
+  height: 32px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // Fallback initials
+  &__initials {
+    @include text-style('label');
+    text-transform: uppercase;
+    user-select: none;
+  }
+
+  // Size variants
+  &--sm {
+    width: 24px;
+    height: 24px;
+
+    .pylon-avatar__initials {
+      font-size: 0.625rem;
+    }
+  }
+
+  &--md {
+    width: 32px;
+    height: 32px;
+  }
+
+  &--lg {
+    width: 40px;
+    height: 40px;
+  }
+
+  &--xl {
+    width: 56px;
+    height: 56px;
+
+    .pylon-avatar__initials {
+      font-size: 1rem;
+    }
+  }
+}

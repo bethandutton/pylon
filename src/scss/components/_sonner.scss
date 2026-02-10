@@ -1,0 +1,90 @@
+// ============================================
+// PYLON SONNER
+// Toast container / stack manager
+// Uses pylon-toast for individual items
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-sonner {
+  position: fixed;
+  bottom: map.get($spacing, 6);
+  right: map.get($spacing, 6);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: map.get($spacing, 3);
+  pointer-events: none;
+  max-height: 100vh;
+
+  &__toast-list {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: map.get($spacing, 3);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    > * {
+      pointer-events: auto;
+    }
+  }
+
+  // Stacked view — toasts have slight offset and scale
+  &--stacked &__toast-list {
+    gap: 0;
+    position: relative;
+
+    > * {
+      position: relative;
+
+      &:nth-child(2) {
+        transform: scale(0.96) translateY(4px);
+        opacity: 0.8;
+      }
+
+      &:nth-child(3) {
+        transform: scale(0.92) translateY(8px);
+        opacity: 0.6;
+      }
+
+      &:nth-child(n + 4) {
+        transform: scale(0.88) translateY(12px);
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+
+  // Position variants
+  &--top-right {
+    bottom: auto;
+    top: map.get($spacing, 6);
+    right: map.get($spacing, 6);
+    flex-direction: column;
+
+    .pylon-sonner__toast-list {
+      flex-direction: column;
+    }
+  }
+
+  &--top-left {
+    bottom: auto;
+    top: map.get($spacing, 6);
+    left: map.get($spacing, 6);
+    right: auto;
+    flex-direction: column;
+
+    .pylon-sonner__toast-list {
+      flex-direction: column;
+    }
+  }
+
+  &--bottom-left {
+    left: map.get($spacing, 6);
+    right: auto;
+  }
+}

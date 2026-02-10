@@ -1,0 +1,21 @@
+// ============================================
+// PYLON LABEL
+// Standalone label component
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-label {
+  @include text-style('label');
+  display: inline-block;
+
+  &--required {
+    &::after {
+      content: ' *';
+      color: $color-error;
+    }
+  }
+}

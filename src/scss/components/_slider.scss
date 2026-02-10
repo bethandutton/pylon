@@ -1,0 +1,91 @@
+// ============================================
+// PYLON SLIDER
+// Pairs with React Aria <Slider>
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-slider {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacing, 2);
+  width: 100%;
+  touch-action: none;
+
+  &__label {
+    @include text-style('label');
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__output {
+    @include text-style('caption');
+  }
+
+  &__track {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    background: $color-surface;
+    border-radius: $radius-full;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -8px 0;
+    }
+  }
+
+  &__fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: $color-brand;
+    border-radius: $radius-full;
+  }
+
+  &__thumb {
+    position: absolute;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    border-radius: $radius-full;
+    background: $color-white;
+    border: 2px solid $color-brand;
+    box-shadow: $shadow-sm;
+    transform: translate(-50%, -50%);
+    cursor: grab;
+    transition: box-shadow $transition-fast, transform $transition-fast;
+
+    &:hover,
+    &[data-hovered] {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    &[data-pressed] {
+      cursor: grabbing;
+      transform: translate(-50%, -50%) scale(1.15);
+    }
+
+    &[data-focus-visible] {
+      box-shadow: $focus-ring;
+    }
+
+    &[data-disabled] {
+      background: $color-surface;
+      border-color: $color-subtle;
+      cursor: not-allowed;
+    }
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}

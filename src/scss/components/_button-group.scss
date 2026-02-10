@@ -1,0 +1,61 @@
+// ============================================
+// PYLON BUTTON GROUP
+// Grouped buttons with shared borders
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-button-group {
+  display: inline-flex;
+
+  // Attached variant — buttons share borders
+  &--attached {
+    > .pylon-btn {
+      border-radius: 0;
+      position: relative;
+
+      // Remove double borders between adjacent buttons
+      &:not(:first-child) {
+        margin-left: -1px;
+      }
+
+      // First button gets left radius
+      &:first-child {
+        border-radius: $radius-md 0 0 $radius-md;
+      }
+
+      // Last button gets right radius
+      &:last-child {
+        border-radius: 0 $radius-md $radius-md 0;
+      }
+
+      // Single button keeps full radius
+      &:only-child {
+        border-radius: $radius-md;
+      }
+
+      // Ensure hovered/focused button sits on top for visible borders
+      &:hover,
+      &[data-hovered] {
+        z-index: 1;
+      }
+
+      &[data-focus-visible] {
+        z-index: 2;
+        box-shadow: $focus-ring;
+      }
+
+      &[data-pressed] {
+        z-index: 1;
+      }
+    }
+  }
+
+  // Non-attached (spaced) — default has a small gap
+  &:not(&--attached) {
+    gap: map.get($spacing, 2);
+  }
+}

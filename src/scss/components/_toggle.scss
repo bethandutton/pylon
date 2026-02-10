@@ -1,0 +1,74 @@
+// ============================================
+// PYLON TOGGLE BUTTON
+// Toggle on/off button
+// Pairs with React Aria <ToggleButton>
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-toggle {
+  @include text-style('body-sm');
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: map.get($spacing, 2);
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-white;
+  cursor: pointer;
+  transition: background $transition-base, border-color $transition-base, color $transition-base, box-shadow $transition-base;
+  white-space: nowrap;
+
+  // Sizes
+  &--sm {
+    padding: map.get($spacing, 1) map.get($spacing, 3);
+    height: 32px;
+  }
+
+  &--md {
+    padding: map.get($spacing, 2) map.get($spacing, 4);
+    height: 38px;
+  }
+
+  &--lg {
+    padding: map.get($spacing, 3) map.get($spacing, 6);
+    height: 44px;
+  }
+
+  &:hover,
+  &[data-hovered] {
+    background: $color-surface;
+    border-color: $color-subtle;
+  }
+
+  &[data-pressed] {
+    background: color.adjust($color-surface, $lightness: -2%);
+  }
+
+  // Selected / pressed state
+  &[data-selected],
+  &--pressed {
+    background: $color-surface;
+    color: $color-base;
+    border-color: $color-subtle;
+
+    &:hover,
+    &[data-hovered] {
+      background: $color-border;
+    }
+  }
+
+  &[data-focus-visible] {
+    box-shadow: $focus-ring;
+  }
+
+  &[data-disabled],
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}

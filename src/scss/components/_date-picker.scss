@@ -1,0 +1,87 @@
+// ============================================
+// PYLON DATE PICKER
+// Input + calendar popup
+// Pairs with React Aria <DatePicker>
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-date-picker {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__trigger {
+    font-family: $font-family-base;
+    font-size: map.get($font-sizes, 'body');
+    line-height: map.get($line-heights, 'body');
+    color: $color-base;
+    background: $color-white;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    padding: map.get($spacing, 2) map.get($spacing, 3);
+    height: 38px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: border-color $transition-base, box-shadow $transition-base;
+
+    &:hover,
+    &[data-hovered] {
+      border-color: $color-subtle;
+    }
+
+    &:focus,
+    &[data-focused] {
+      border-color: $color-brand;
+      box-shadow: 0 0 0 1px $color-brand;
+      outline: none;
+    }
+
+    &[data-focus-visible] {
+      box-shadow: $focus-ring;
+    }
+
+    &[data-invalid] {
+      border-color: $color-error;
+
+      &:focus,
+      &[data-focused] {
+        box-shadow: 0 0 0 1px $color-error;
+      }
+    }
+
+    &[data-disabled],
+    &:disabled {
+      opacity: 0.5;
+      background: $color-surface;
+      cursor: not-allowed;
+    }
+  }
+
+  &__popover {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: map.get($spacing, 1);
+    background: $color-white;
+    border: 1px solid $color-border;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-md;
+    z-index: 1050;
+
+    &[data-entering] {
+      animation: pylon-fade-in $transition-fast;
+    }
+
+    &[data-exiting] {
+      animation: pylon-fade-out $transition-fast;
+    }
+  }
+}

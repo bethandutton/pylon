@@ -1,0 +1,41 @@
+// ============================================
+// PYLON HOVER CARD
+// Hover-triggered popover for previews
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-hover-card {
+  &__trigger {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+
+    &[data-focus-visible] {
+      box-shadow: $focus-ring;
+      border-radius: $radius-sm;
+    }
+  }
+
+  &__content {
+    background: $color-white;
+    border: 1px solid $color-border;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-md;
+    z-index: 1050;
+    overflow: hidden;
+    padding: map.get($spacing, 4);
+    max-width: 320px;
+
+    &[data-entering] {
+      animation: pylon-fade-in $transition-fast;
+    }
+
+    &[data-exiting] {
+      animation: pylon-fade-out $transition-fast;
+    }
+  }
+}

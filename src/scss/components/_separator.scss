@@ -1,0 +1,49 @@
+// ============================================
+// PYLON SEPARATOR
+// Horizontal and vertical divider lines
+// Pairs with React Aria <Separator>
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-separator {
+  border: none;
+  border-top: 1px solid $color-border;
+  margin: map.get($spacing, 4) 0;
+  width: 100%;
+
+  // Vertical variant for flex layouts
+  &--vertical {
+    border-top: none;
+    border-left: 1px solid $color-border;
+    height: auto;
+    align-self: stretch;
+    width: 0;
+    margin: 0 map.get($spacing, 4);
+  }
+
+  // With centered text label
+  &--with-text {
+    display: flex;
+    align-items: center;
+    gap: map.get($spacing, 3);
+    border-top: none;
+
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: $color-border;
+    }
+  }
+
+  &__text {
+    @include text-style('caption');
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}

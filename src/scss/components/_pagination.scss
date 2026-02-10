@@ -1,0 +1,119 @@
+// ============================================
+// PYLON PAGINATION
+// Page navigation controls
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-pagination {
+  display: flex;
+  align-items: center;
+  gap: map.get($spacing, 1);
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: map.get($spacing, 1);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    @include text-style('body-sm');
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+    padding: map.get($spacing, 1) map.get($spacing, 2);
+    border: 1px solid transparent;
+    border-radius: $radius-md;
+    cursor: pointer;
+    background: none;
+    transition: background $transition-fast, border-color $transition-fast;
+    outline: none;
+    text-decoration: none;
+
+    &:hover,
+    &[data-hovered] {
+      background: $color-surface;
+      border-color: $color-border;
+    }
+
+    &[data-pressed] {
+      background: color.adjust($color-surface, $lightness: -2%);
+    }
+
+    &--active,
+    &[data-selected] {
+      background: $color-brand;
+      color: $color-white;
+      border-color: $color-brand;
+
+      &:hover,
+      &[data-hovered] {
+        background: $color-brand-dark;
+        border-color: $color-brand-dark;
+      }
+    }
+
+    &[data-disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &[data-focus-visible] {
+      box-shadow: $focus-ring;
+    }
+  }
+
+  &__prev,
+  &__next {
+    @include text-style('body-sm');
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+    padding: map.get($spacing, 1) map.get($spacing, 2);
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    cursor: pointer;
+    background: $color-white;
+    transition: background $transition-fast;
+    outline: none;
+
+    &:hover,
+    &[data-hovered] {
+      background: $color-surface;
+    }
+
+    &[data-pressed] {
+      background: color.adjust($color-surface, $lightness: -2%);
+    }
+
+    &[data-disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &[data-focus-visible] {
+      box-shadow: $focus-ring;
+    }
+  }
+
+  &__ellipsis {
+    @include text-style('body-sm');
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+    color: $color-muted;
+    user-select: none;
+  }
+}

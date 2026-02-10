@@ -1,0 +1,97 @@
+// ============================================
+// PYLON SIDEBAR
+// App sidebar navigation layout
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: $color-surface;
+  border-right: 1px solid $color-border;
+  transition: width $transition-base;
+  overflow: hidden;
+  z-index: 100;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: map.get($spacing, 4);
+    border-bottom: 1px solid $color-border;
+    min-height: 56px;
+  }
+
+  &__content {
+    flex: 1;
+    overflow-y: auto;
+    padding: map.get($spacing, 3);
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, 1);
+  }
+
+  &__footer {
+    padding: map.get($spacing, 4);
+    border-top: 1px solid $color-border;
+    margin-top: auto;
+  }
+
+  &__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    background: $color-white;
+    cursor: pointer;
+    transition: background $transition-fast, border-color $transition-fast;
+    flex-shrink: 0;
+
+    &:hover,
+    &[data-hovered] {
+      background: $color-surface;
+      border-color: $color-subtle;
+    }
+
+    &[data-pressed] {
+      background: $color-border;
+    }
+
+    &[data-focus-visible] {
+      box-shadow: $focus-ring;
+    }
+  }
+
+  // Collapsed state
+  &--collapsed {
+    width: 64px;
+
+    .pylon-sidebar__header {
+      justify-content: center;
+      padding: map.get($spacing, 4) map.get($spacing, 2);
+    }
+
+    .pylon-sidebar__content {
+      padding: map.get($spacing, 3) map.get($spacing, 2);
+      align-items: center;
+    }
+
+    .pylon-sidebar__footer {
+      padding: map.get($spacing, 4) map.get($spacing, 2);
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

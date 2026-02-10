@@ -1,0 +1,121 @@
+// ============================================
+// PYLON COMBOBOX
+// Input + listbox autocomplete
+// Pairs with React Aria <ComboBox>
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-combobox {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__input {
+    font-family: $font-family-base;
+    font-size: map.get($font-sizes, 'body');
+    line-height: map.get($line-heights, 'body');
+    color: $color-base;
+    background: $color-white;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    padding: map.get($spacing, 2) map.get($spacing, 3);
+    height: 38px;
+    width: 100%;
+    transition: border-color $transition-base, box-shadow $transition-base;
+
+    &::placeholder {
+      color: $color-subtle;
+    }
+
+    &:hover,
+    &[data-hovered] {
+      border-color: $color-subtle;
+    }
+
+    &:focus,
+    &[data-focused] {
+      border-color: $color-brand;
+      box-shadow: 0 0 0 1px $color-brand;
+      outline: none;
+    }
+
+    &[data-focus-visible] {
+      box-shadow: $focus-ring;
+    }
+
+    &[data-invalid] {
+      border-color: $color-error;
+
+      &:focus,
+      &[data-focused] {
+        box-shadow: 0 0 0 1px $color-error;
+      }
+    }
+
+    &[data-disabled],
+    &:disabled {
+      opacity: 0.5;
+      background: $color-surface;
+      cursor: not-allowed;
+    }
+  }
+
+  &__listbox {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: map.get($spacing, 1);
+    background: $color-white;
+    border: 1px solid $color-border;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-md;
+    max-height: 240px;
+    overflow-y: auto;
+    z-index: 1050;
+    padding: map.get($spacing, 1) 0;
+
+    &[data-entering] {
+      animation: pylon-fade-in $transition-fast;
+    }
+
+    &[data-exiting] {
+      animation: pylon-fade-out $transition-fast;
+    }
+  }
+
+  &__option {
+    @include text-style('body');
+    display: flex;
+    align-items: center;
+    gap: map.get($spacing, 3);
+    padding: map.get($spacing, 2) map.get($spacing, 3);
+    cursor: pointer;
+    transition: background $transition-fast;
+    outline: none;
+
+    &:hover,
+    &[data-focused] {
+      background: $color-surface;
+    }
+
+    &[data-selected] {
+      color: $color-brand-dark;
+      font-weight: 500;
+    }
+
+    &[data-disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &[data-focus-visible] {
+      box-shadow: inset $focus-ring;
+    }
+  }
+}

@@ -1,0 +1,84 @@
+// ============================================
+// PYLON MENUBAR
+// Horizontal menu bar
+// Pairs with React Aria <MenuBar>
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-menubar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  padding: map.get($spacing, 1);
+
+  &__item {
+    position: relative;
+  }
+
+  &__trigger {
+    @include text-style('body-sm');
+    display: inline-flex;
+    align-items: center;
+    gap: map.get($spacing, 1);
+    padding: map.get($spacing, 1) map.get($spacing, 3);
+    background: none;
+    border: none;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: background $transition-fast;
+    outline: none;
+    white-space: nowrap;
+
+    &:hover,
+    &[data-hovered] {
+      background: $color-surface;
+    }
+
+    &[data-pressed] {
+      background: color.adjust($color-surface, $lightness: -2%);
+    }
+
+    &[data-selected] {
+      background: $color-surface;
+      color: $color-brand-dark;
+    }
+
+    &[data-disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &[data-focus-visible] {
+      box-shadow: $focus-ring;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: map.get($spacing, 1);
+    background: $color-white;
+    border: 1px solid $color-border;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-md;
+    min-width: 180px;
+    padding: map.get($spacing, 1) 0;
+    z-index: 1050;
+
+    &[data-entering] {
+      animation: pylon-fade-in $transition-fast;
+    }
+
+    &[data-exiting] {
+      animation: pylon-fade-out $transition-fast;
+    }
+  }
+}

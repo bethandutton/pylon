@@ -1,0 +1,79 @@
+// ============================================
+// PYLON RADIO GROUP
+// Pairs with React Aria <RadioGroup>, <Radio>
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacing, 3);
+
+  &[data-disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &[data-invalid] .pylon-radio__circle {
+    border-color: $color-error;
+  }
+}
+
+.pylon-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: map.get($spacing, 2);
+  cursor: pointer;
+  @include text-style('body');
+
+  &__circle {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid $color-border;
+    border-radius: $radius-full;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: border-color $transition-fast, background $transition-fast;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: $radius-full;
+    background: transparent;
+    transition: background $transition-fast, transform $transition-fast;
+    transform: scale(0);
+  }
+
+  &[data-hovered] .pylon-radio__circle {
+    border-color: $color-subtle;
+  }
+
+  &[data-selected] .pylon-radio__circle {
+    border-color: $color-brand;
+  }
+
+  &[data-selected] .pylon-radio__dot {
+    background: $color-brand;
+    transform: scale(1);
+  }
+
+  &[data-focus-visible] .pylon-radio__circle {
+    box-shadow: $focus-ring;
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &[data-invalid] .pylon-radio__circle {
+    border-color: $color-error;
+  }
+}

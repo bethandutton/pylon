@@ -1,0 +1,43 @@
+// ============================================
+// PYLON EMPTY STATE
+// Placeholder for empty content areas
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: map.get($spacing, 12) map.get($spacing, 6);
+
+  &__icon {
+    margin-bottom: map.get($spacing, 4);
+    color: $color-subtle;
+
+    svg {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  &__title {
+    @include text-style('h5');
+    margin: 0 0 map.get($spacing, 2);
+  }
+
+  &__description {
+    @include text-style('body-sm');
+    max-width: 360px;
+    margin: 0 0 map.get($spacing, 5);
+  }
+
+  &__action {
+    margin-top: map.get($spacing, 2);
+  }
+}

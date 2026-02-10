@@ -1,0 +1,106 @@
+// ============================================
+// PYLON COMMAND PALETTE
+// Quick-access command search overlay
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-command {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: map.get($spacing, 20);
+  background: rgba($color-dark, 0.6);
+  z-index: 1100;
+
+  &[data-entering] {
+    animation: pylon-fade-in $transition-fast;
+  }
+
+  &[data-exiting] {
+    animation: pylon-fade-out $transition-fast;
+  }
+
+  &__input {
+    font-family: $font-family-base;
+    font-size: map.get($font-sizes, 'body');
+    line-height: map.get($line-heights, 'body');
+    color: $color-base;
+    width: 100%;
+    padding: map.get($spacing, 3) map.get($spacing, 4);
+    background: $color-white;
+    border: none;
+    border-bottom: 1px solid $color-border;
+    border-radius: $radius-lg $radius-lg 0 0;
+    outline: none;
+
+    &::placeholder {
+      color: $color-subtle;
+    }
+
+    &[data-focus-visible] {
+      box-shadow: $focus-ring;
+    }
+  }
+
+  &__list {
+    background: $color-white;
+    border-radius: 0 0 $radius-lg $radius-lg;
+    box-shadow: $shadow-lg;
+    max-width: 560px;
+    width: 100%;
+    max-height: 360px;
+    overflow-y: auto;
+    padding: map.get($spacing, 2) 0;
+  }
+
+  &__item {
+    @include text-style('body');
+    display: flex;
+    align-items: center;
+    gap: map.get($spacing, 3);
+    padding: map.get($spacing, 2) map.get($spacing, 4);
+    cursor: pointer;
+    transition: background $transition-fast;
+    outline: none;
+
+    &:hover,
+    &[data-focused] {
+      background: $color-surface;
+    }
+
+    &[data-selected] {
+      color: $color-brand-dark;
+    }
+
+    &[data-disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &[data-focus-visible] {
+      box-shadow: inset $focus-ring;
+    }
+  }
+
+  &__group {
+    padding: map.get($spacing, 1) 0;
+  }
+
+  &__group-title {
+    @include text-style('overline');
+    text-transform: uppercase;
+    padding: map.get($spacing, 2) map.get($spacing, 4) map.get($spacing, 1);
+  }
+
+  &__empty {
+    @include text-style('body-sm');
+    padding: map.get($spacing, 6) map.get($spacing, 4);
+    text-align: center;
+  }
+}

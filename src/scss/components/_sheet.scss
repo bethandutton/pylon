@@ -1,0 +1,147 @@
+// ============================================
+// PYLON SHEET
+// Bottom / side slide-in panel
+// Pairs with React Aria <Dialog>, <Modal>
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-sheet {
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba($color-dark, 0.4);
+    z-index: 1000;
+
+    &[data-entering] {
+      animation: pylon-sheet-fade-in $transition-base;
+    }
+
+    &[data-exiting] {
+      animation: pylon-sheet-fade-out $transition-base;
+    }
+  }
+
+  &__panel {
+    position: fixed;
+    background: $color-white;
+    box-shadow: $shadow-lg;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: map.get($spacing, 5);
+    border-bottom: 1px solid $color-border;
+
+    @include text-style('h4');
+  }
+
+  &__body {
+    flex: 1;
+    overflow-y: auto;
+    padding: map.get($spacing, 5);
+  }
+
+  // Bottom sheet
+  &--bottom &__panel {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 85vh;
+    border-radius: $radius-xl $radius-xl 0 0;
+
+    &[data-entering] {
+      animation: pylon-sheet-slide-up $transition-base;
+    }
+
+    &[data-exiting] {
+      animation: pylon-sheet-slide-down $transition-base;
+    }
+  }
+
+  // Left sheet
+  &--left &__panel {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 360px;
+    max-width: 85vw;
+    border-radius: 0 $radius-xl $radius-xl 0;
+
+    &[data-entering] {
+      animation: pylon-sheet-slide-right $transition-base;
+    }
+
+    &[data-exiting] {
+      animation: pylon-sheet-slide-left $transition-base;
+    }
+  }
+
+  // Right sheet
+  &--right &__panel {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 360px;
+    max-width: 85vw;
+    border-radius: $radius-xl 0 0 $radius-xl;
+
+    &[data-entering] {
+      animation: pylon-sheet-slide-left-in $transition-base;
+    }
+
+    &[data-exiting] {
+      animation: pylon-sheet-slide-right-out $transition-base;
+    }
+  }
+}
+
+// Animations
+@keyframes pylon-sheet-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pylon-sheet-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes pylon-sheet-slide-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes pylon-sheet-slide-down {
+  from { transform: translateY(0); }
+  to   { transform: translateY(100%); }
+}
+
+@keyframes pylon-sheet-slide-right {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes pylon-sheet-slide-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+@keyframes pylon-sheet-slide-left-in {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes pylon-sheet-slide-right-out {
+  from { transform: translateX(0); }
+  to   { transform: translateX(100%); }
+}

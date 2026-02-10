@@ -1,0 +1,70 @@
+// ============================================
+// PYLON INPUT GROUP
+// Input with start/end addons
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-input-group {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+
+  // Reset border-radius on inner elements for flush connection
+  > .pylon-input {
+    border-radius: 0;
+    flex: 1;
+    min-width: 0;
+  }
+
+  // First child gets left radius
+  > :first-child {
+    border-radius: $radius-md 0 0 $radius-md;
+  }
+
+  // Last child gets right radius
+  > :last-child {
+    border-radius: 0 $radius-md $radius-md 0;
+  }
+
+  // If only one child, restore full radius
+  > :only-child {
+    border-radius: $radius-md;
+  }
+
+  // Remove double borders between adjacent items
+  > :not(:first-child) {
+    margin-left: -1px;
+  }
+
+  // Ensure focused input is above sibling borders
+  > .pylon-input:focus,
+  > .pylon-input[data-focused] {
+    z-index: 1;
+    position: relative;
+  }
+
+  &__addon {
+    @include text-style('body-sm');
+    display: flex;
+    align-items: center;
+    padding: map.get($spacing, 2) map.get($spacing, 3);
+    background: $color-surface;
+    border: 1px solid $color-border;
+    white-space: nowrap;
+    flex-shrink: 0;
+
+    &--start {
+      border-right: none;
+      border-radius: $radius-md 0 0 $radius-md;
+    }
+
+    &--end {
+      border-left: none;
+      border-radius: 0 $radius-md $radius-md 0;
+    }
+  }
+}

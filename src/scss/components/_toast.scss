@@ -1,0 +1,137 @@
+// ============================================
+// PYLON TOAST
+// Notification toast with variants
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-toast {
+  display: flex;
+  align-items: flex-start;
+  gap: map.get($spacing, 3);
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: map.get($spacing, 4);
+  box-shadow: $shadow-lg;
+  min-width: 300px;
+  max-width: 420px;
+  position: relative;
+  animation: pylon-toast-slide-in $transition-base;
+
+  &[data-exiting] {
+    animation: pylon-toast-slide-out $transition-base;
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, 1);
+  }
+
+  &__title {
+    @include text-style('label');
+  }
+
+  &__description {
+    @include text-style('body-sm');
+  }
+
+  &__action {
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  &__close {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    color: $color-muted;
+    transition: background $transition-fast, color $transition-fast;
+
+    &:hover,
+    &[data-hovered] {
+      background: $color-surface;
+      color: $color-base;
+    }
+
+    &[data-focus-visible] {
+      box-shadow: $focus-ring;
+    }
+  }
+
+  // Variant: Success
+  &--success {
+    border-color: $color-success;
+    background: $color-success-light;
+
+    .pylon-toast__title {
+      color: $color-success;
+    }
+  }
+
+  // Variant: Error
+  &--error {
+    border-color: $color-error;
+    background: $color-error-light;
+
+    .pylon-toast__title {
+      color: $color-error;
+    }
+  }
+
+  // Variant: Warning
+  &--warning {
+    border-color: $color-warning;
+    background: $color-warning-light;
+
+    .pylon-toast__title {
+      color: $color-warning;
+    }
+  }
+
+  // Variant: Info
+  &--info {
+    border-color: $color-brand;
+    background: $color-brand-light;
+
+    .pylon-toast__title {
+      color: $color-brand-dark;
+    }
+  }
+}
+
+@keyframes pylon-toast-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pylon-toast-slide-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}

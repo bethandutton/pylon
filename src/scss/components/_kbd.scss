@@ -1,0 +1,25 @@
+// ============================================
+// PYLON KBD
+// Keyboard shortcut display
+// ============================================
+
+@use 'sass:map';
+@use 'sass:color';
+@use '../tokens' as *;
+@use '../typography' as *;
+
+.pylon-kbd {
+  @include text-style('caption');
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  padding: map.get($spacing, 0) map.get($spacing, 1);
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  font-family: $font-family-mono;
+  vertical-align: middle;
+  white-space: nowrap;
+  box-shadow: 0 1px 0 rgba($color-base, 0.1);
+}
