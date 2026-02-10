@@ -3,3 +3,6 @@ dist/
 .sass-cache/
 *.css.map
 .DS_Store
+.next/
+docs/.next/
+docs/next-env.d.ts

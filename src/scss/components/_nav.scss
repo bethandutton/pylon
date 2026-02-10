@@ -73,7 +73,7 @@
     align-items: center;
     gap: map.get($spacing, 3);
     padding: map.get($spacing, 2) map.get($spacing, 3);
-    font-size: map.get($font-sizes, 'body');
+    @include text-style('body');
     font-weight: 500;
     color: $color-muted;
     border-radius: $radius-md;

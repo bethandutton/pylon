@@ -4,15 +4,13 @@
 
 @use 'sass:map';
 @use '../tokens' as *;
+@use '../typography' as *;
 
 .pylon-badge {
   display: inline-flex;
   align-items: center;
   gap: map.get($spacing, 1);
-  font-family: $font-family-base;
-  font-size: map.get($font-sizes, 'small');
-  font-weight: 600;
-  line-height: 1;
+  @include text-style('small');
   padding: map.get($spacing, 1) map.get($spacing, 2);
   border-radius: $radius-full;
   white-space: nowrap;

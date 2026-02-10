@@ -10,7 +10,7 @@
 .pylon-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: map.get($font-sizes, 'body');
+  @include text-style('body');
 
   // Header
   &__head {
@@ -60,13 +60,12 @@
 
   &__cell {
     padding: map.get($spacing, 3) map.get($spacing, 4);
-    color: $color-base;
     vertical-align: middle;
   }
 
   // Compact variant
   &--compact {
-    font-size: map.get($font-sizes, 'body-sm');
+    @include text-style('body-sm');
 
     .pylon-table__header-cell,
     .pylon-table__cell {

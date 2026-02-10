@@ -12,8 +12,8 @@ $color-brand:           #6B8BA4;
 $color-brand-dark:      #456A84;
 $color-brand-light:     #E8EFF4;
 
-$font-family-base: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-$font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+$font-family-base: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-family-mono: 'Geist Mono', 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
 
 // Load compiled Pylon CSS
 @import '../../dist/pylon.css';

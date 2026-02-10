@@ -57,8 +57,7 @@
     align-items: center;
     gap: map.get($spacing, 3);
     padding: map.get($spacing, 2) map.get($spacing, 3);
-    font-size: map.get($font-sizes, 'body');
-    color: $color-base;
+    @include text-style('body');
     cursor: pointer;
     transition: background $transition-fast;
     outline: none;
